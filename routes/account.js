@@ -62,5 +62,33 @@ router.get('/:action', function(req, res, next) {
   }
 })
 
+router.post('/:action', function(req, res, next){
+  var action = req.params.action
+
+  if(action=='register'){
+    ProfileController
+    .create(req.body, false)
+    .then(function(result){
+			var token = jwt.sign({id:result.id}, process.env.TOKEN_SECRET, {expiresIn:4000})
+      req.session.token = token
+
+      res.json({
+        confirmation: 'success',
+        user: result,
+        token: token
+      })
+      return
+    })
+    .catch(function(err){
+      res.json({
+        confirmation: 'fail',
+        message: err
+      })
+      return
+    })
+
+  }
+
+})
 
 module.exports = router
