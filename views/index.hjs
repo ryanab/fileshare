@@ -7,5 +7,11 @@
   <body>
     <h1>{{ title }}</h1>
     <p>Welcome to {{ title }}</p>
+
+    <form action="/account/register" method="post">
+      <input name="email" placeholder="email" type="text">
+      <input name="password" placeholder="password" type="text">
+      <button type="submit">Register</button>
+    </form>
   </body>
 </html>
