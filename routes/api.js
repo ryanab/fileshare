@@ -27,6 +27,6 @@ router.get('/:resource', function(req, res, next) {
   		})
   	})
   })
-});
+})
 
 module.exports = router;
