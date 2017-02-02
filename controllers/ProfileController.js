@@ -26,7 +26,7 @@ module.exports = {
 
    getById: function(id, isRaw){
     return new Promise(function(resolve, reject){
-      Profile.findById(params, function(err, profile){
+      Profile.findById(id, function(err, profile){
         if(err){
           reject(err)
           return

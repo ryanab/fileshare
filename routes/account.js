@@ -45,7 +45,7 @@ router.get('/:action', function(req, res, next) {
       .catch(function(err){
         res.json({
           confirmation: 'fail',
-          message: err
+          message: err.message
         })
         return
       })
@@ -86,9 +86,7 @@ router.post('/:action', function(req, res, next){
       })
       return
     })
-
   }
-
 })
 
 module.exports = router
