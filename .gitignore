@@ -2,3 +2,4 @@
 /node_modules
 /public/theme/
 /public/build/
+/models/Profile.js
