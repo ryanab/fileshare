@@ -3,6 +3,10 @@ File sharing app with realtime firebase apps
 
 Setup Instructions:
 
-1) Run NPM Install
-2) Create .env File
-3) add your local monngo db to the .env file (ex: MONGO_URL=mongodb://localhost/fileshare)
+1. clone
+2. $ touch .env
+3. In env file, add 'MONGO_URL=mongodb://localhost/fileshare'
+4. $ npm install
+5. $ nodemon OR $ npm start
+6. In browser, navigte to http://localhost:3000
+7. PROFIT!
