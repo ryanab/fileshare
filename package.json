@@ -7,6 +7,10 @@
   },
   "dependencies": {
     "bcryptjs": "^2.4.0",
+    "babel-core": "^6.22.1",
+    "babel-loader": "^6.2.10",
+    "babel-preset-es2015": "^6.22.0",
+    "babel-preset-react": "^6.22.0",
     "bluebird": "^3.4.7",
     "body-parser": "~1.15.2",
     "client-sessions": "^0.7.0",
@@ -18,6 +22,10 @@
     "jsonwebtoken": "^7.2.1",
     "mongoose": "^4.8.1",
     "morgan": "~1.7.0",
-    "serve-favicon": "~2.3.0"
+    "react": "^15.4.2",
+    "react-dom": "^15.4.2",
+    "serve-favicon": "~2.3.0",
+    "superagent": "^3.4.1",
+    "webpack": "^2.2.1"
   }
 }

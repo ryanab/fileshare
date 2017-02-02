@@ -1,17 +1,13 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>{{ title }}</title>
+    <title>FileShare</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body>
-    <h1>{{ title }}</h1>
-    <p>Welcome to {{ title }}</p>
-
-    <form action="/account/register" method="post">
-      <input name="email" placeholder="email" type="text">
-      <input name="password" placeholder="password" type="text">
-      <button type="submit">Register</button>
-    </form>
+    <div id="root"></div>
+    <script type="text/javascript" src="/build/bundle.js"></script>
   </body>
 </html>
