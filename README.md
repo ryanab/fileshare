@@ -9,5 +9,5 @@ Setup Instructions:
 4. $ npm install
 5. In separate terminal tab, $ mongod
 6. $ nodemon OR $ npm start
-7. In browser, navigte to http://localhost:3000
+7. In browser, navigate to http://localhost:3000
 8. PROFIT!
