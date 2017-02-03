@@ -1,7 +1,3 @@
-
-
-
-
 export default{
 
 PROFILE_CREATED:'PROFILE_CREATED',
