@@ -87,6 +87,39 @@ router.post('/:action', function(req, res, next){
       return
     })
   }
+
+  if(action=='login'){
+    ProfileController
+    .get({email: req.body.email}, true)
+    .then(function(results){
+      if(results.length==0){
+        throw new Error('User not found')
+        return
+      }
+        
+      var profile = results[0]
+
+      var isPasswordCorrect = bcrypt.compareSync(req.body.password, profile.password)
+      if (isPasswordCorrect == false){
+        throw new Error('Wrong password')
+        return
+      }
+      var token = jwt.sign({id: profile.id}, process.env.TOKEN_SECRET, {expiresIn: 4000})
+      req.session.token = token
+
+      res.json({
+        confirmation: 'success',
+        user: profile.summary()
+      })
+      return
+    })
+    .catch(function(err){
+      res.json({
+        confirmation: 'fail',
+        message: err.message
+      })
+    })
+  }
 })
 
 module.exports = router
