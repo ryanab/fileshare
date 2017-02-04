@@ -40,7 +40,7 @@ class Authenticate extends Component {
 
             <input onChange={this.updateCredentials.bind(this, 'email')}  placeholder="Email" type="text" /><br />
             <input onChange={this.updateCredentials.bind(this, 'password')}  placeholder="Password" type="password" /><br />
-            <input onChange={this.updateCredentials.bind(this, 'firstName')}  placeholder="First Name" type="password" /><br />
+            <input onChange={this.updateCredentials.bind(this, 'firstName')}  placeholder="First Name" type="text" /><br />
 
             <button onClick={this.register.bind(this)}>Join</button>
           </div>

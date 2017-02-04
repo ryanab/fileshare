@@ -6,7 +6,7 @@ const getRequest = (path, params, actionType)=>{
   return(dispatch) =>
   APIManager.get(path, params)
   .then(response=>{
-    const payload = response.results || response.result || response.users
+    const payload = response.results || response.result || response.user
 
     dispatch({
       type: actionType,
@@ -51,15 +51,15 @@ export default{
     }
   },
 
-  checkCurrentUser: ()=>{
+  fetchCurrentUser: ()=>{
     return(dispatch) => {
-      return dispatch(getRequest('account/currentuser', {}, constants.USER_LOGGED_IN))
+      return dispatch(getRequest('account/currentuser', null, constants.USER_LOGGED_IN))
     }
   },
 
   logout: () => {
     return (dispatch) => {
-      return dispatch(getRequest('account/logout', {}, constants.USER_LOGGED_IN))
+      return dispatch(getRequest('account/logout', null, constants.USER_LOGGED_IN))
     }
   }
 
