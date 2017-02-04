@@ -30,17 +30,17 @@ class CreateFile extends Component{
 
   		APIManager.uploadFile(url, image, params)
       console.log('url')
-  		// .then((uploaded) => {
-  		// 	console.log('Upload Complete: '+JSON.stringify(uploaded))
-  		// 	let updated = Object.assign({}, this.state.post)
-  		// 	updated['image'] = uploaded['secure_url']
-  		// 	this.setState({
-  		// 		post: updated
-  		// 	})
-  		// })
-  		// .catch((err) => {
-  		// 	alert(err)
-  		// })
+  		.then((uploaded) => {
+  			console.log('Upload Complete: '+JSON.stringify(uploaded))
+  			let updated = Object.assign({}, this.state.post)
+  			updated['image'] = uploaded['secure_url']
+  			this.setState({
+  				post: updated
+  			})
+  		})
+  		.catch((err) => {
+  			alert(err)
+  		})
   	}
 
   render(){

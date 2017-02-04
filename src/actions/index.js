@@ -4,20 +4,20 @@ import { APIManager } from '../utils'
 
 const getRequest = (path, params, actionType)=>{
   return(dispatch) =>
-  APIManager.get(path, params)
-  .then(response=>{
-    const payload = response.results || response.result || response.users
+    APIManager.get(path, params)
+    .then(response=>{
+      const payload = response.results || response.result || response.users
 
-    dispatch({
-      type: actionType,
-      payload: payload,
-      params: params
+      dispatch({
+        type: actionType,
+        payload: payload,
+        params: params
+      })
+      return response
     })
-    return response
-  })
-  .catch(err=>{
-    throw err
-  })
+    .catch(err=>{
+      throw err
+    })
 }
 
 const postRequest = (path, params, actionType)=>{
@@ -62,6 +62,4 @@ export default{
       return dispatch(getRequest('account/logout', {}, constants.USER_LOGGED_IN))
     }
   }
-
-
 }
