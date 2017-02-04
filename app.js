@@ -19,11 +19,8 @@ mongoose.connect(dbUrl, function(err){
 })
 
 var index = require('./routes/index');
-<<<<<<< HEAD
 var api = require('./routes/api');
-=======
 var account = require('./routes/account');
->>>>>>> 43275179f5858aeda36f2f2dcee77017149782f3
 
 var app = express();
 
@@ -48,11 +45,8 @@ app.use(sessions({
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
-<<<<<<< HEAD
 app.use('/api', api);
-=======
 app.use('/account', account);
->>>>>>> 43275179f5858aeda36f2f2dcee77017149782f3
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
