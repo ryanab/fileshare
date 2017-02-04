@@ -6,7 +6,6 @@ import actions from '../../actions'
 class Account extends Component{
   
   login(credentials){
-
     this.props.login(credentials)
   }
 
@@ -15,9 +14,11 @@ class Account extends Component{
   }
   
   render(){
+    
     return(
         <div>
           <h2>Account Container</h2>
+          <h3>{(this.props.user==null)?'':this.props.user.email}</h3>
           <Authenticate onRegister={this.register.bind(this)} onLogin={this.login.bind(this)}/>
         </div>
     )
@@ -27,7 +28,7 @@ class Account extends Component{
 
 const stateToProps = (state)=>{
   return{
-
+    user: state.account.user
   }
 }
 

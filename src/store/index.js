@@ -7,9 +7,7 @@ var store;
 export default {
 	configureStore: () => {
 		const reducers = combineReducers({
-
 			account: accountReducer
-
 		})
 
 		store = createStore(
