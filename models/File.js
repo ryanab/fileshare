@@ -4,6 +4,7 @@ var FileSchema = new mongoose.Schema({
 	fileName: {type:String, default: ''},
 	fileType: {type:String, default:''},
 	profile: {type:mongoose.Schema.Types.Mixed, default: {}},
+	image: {type: String, default:''},
 	timestamp: {type:Date, default:Date.now}
 })
 
