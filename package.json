@@ -6,15 +6,32 @@
     "start": "node ./bin/www"
   },
   "dependencies": {
+<<<<<<< HEAD
+=======
+    "babel-core": "^6.22.1",
+    "babel-loader": "^6.2.10",
+    "babel-preset-es2015": "^6.22.0",
+    "babel-preset-react": "^6.22.0",
+    "bcryptjs": "^2.4.0",
+>>>>>>> 43275179f5858aeda36f2f2dcee77017149782f3
     "bluebird": "^3.4.7",
     "body-parser": "~1.15.2",
+    "client-sessions": "^0.7.0",
     "cookie-parser": "~1.4.3",
     "debug": "~2.2.0",
     "dotenv": "^4.0.0",
     "express": "~4.14.0",
     "hjs": "~0.0.6",
+    "jsonwebtoken": "^7.2.1",
     "mongoose": "^4.8.1",
     "morgan": "~1.7.0",
-    "serve-favicon": "~2.3.0"
+    "react": "^15.4.2",
+    "react-dom": "^15.4.2",
+    "react-redux": "^5.0.2",
+    "redux": "^3.6.0",
+    "redux-thunk": "^2.2.0",
+    "serve-favicon": "~2.3.0",
+    "superagent": "^3.4.1",
+    "webpack": "^2.2.1"
   }
 }
