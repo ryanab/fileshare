@@ -2,6 +2,7 @@ var express = require('express')
 var router = express.Router()
 var jwt = require('jsonwebtoken')
 var ProfileController = require('../controllers/ProfileController')
+var bcrypt = require('bcryptjs')
 
 /* GET users listing. */
 router.get('/:action', function(req, res, next) {
@@ -64,7 +65,6 @@ router.get('/:action', function(req, res, next) {
 
 router.post('/:action', function(req, res, next){
   var action = req.params.action
-
   if(action=='register'){
     ProfileController
     .create(req.body, false)

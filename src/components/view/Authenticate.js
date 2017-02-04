@@ -14,21 +14,22 @@ class Authenticate extends Component {
     }
   }
   updateCredentials(field, event){
-    console.log("UPDATE CREDENTIALS: " + JSON.stringify(event.target.value))
-    // let updated = Object.assign({}, this.state.credentials)
-    // updated[field] = event.target.value
-    // this.setState({
-    //   credentials: updated
-    // })
+    event.preventDefault()
+    let updated = Object.assign({}, this.state.credentials)
+    updated[field] = event.target.value
+    this.setState({
+      credentials: updated
+    })
   }
 
 
-  register(field, event){
-    console.log('register Click')
+  register(event){
+    event.preventDefault()
+    this.props.onRegister(this.state.credentials)
   }
 
   login(field, event){
-    console.log('login')
+    this.props.onLogin(this.state.credentials)
   }
   render(){
     return(

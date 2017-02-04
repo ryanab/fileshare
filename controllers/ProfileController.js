@@ -55,6 +55,7 @@ module.exports = {
           resolve(profile)
           return
         }
+        console.log(JSON.stringify(profile))
         resolve(profile.summary())
       })
     })

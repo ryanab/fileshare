@@ -15,6 +15,7 @@ FileSchema.methods.summary = function(){
 		timestamp: this.timestamp,
 		id: this._id.toString()
 	}
+	return summary
 }
 
 module.exports = mongoose.model('FileSchema', FileSchema)
