@@ -12,5 +12,4 @@ class File extends Component{
   }
 }
 
-
 export default File
