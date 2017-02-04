@@ -6,6 +6,15 @@ import { APIManager } from '../../utils'
 
 
 class CreateFile extends Component{
+	constructor(){
+		super()
+		this.state={
+			post:{
+				image:''
+
+			}
+		}
+	}
 
 //cloudinary not authorizing yet
   imageSelected(files){
@@ -16,24 +25,23 @@ class CreateFile extends Component{
   		const url = 'https://api.cloudinary.com/v1_1/'+cloudName+'/image/upload'
 
   		const timestamp = Date.now()/1000
-  		const uploadPreset='qfk6kfpf'
+  		const uploadPreset='uqj0leyv'
 
-  		const paramsStr = 'timestamp='+timestamp+'&upload_preset='+uploadPreset+'e8LAFbk1H23PLU02S5Og2DzsMYQ'
+  		const paramsStr = 'timestamp='+timestamp+'&upload_preset='+uploadPreset+'4fkKUAKpWOseM8w2Yoh7TYNLO8k'
 
   		const signature = sha1(paramsStr)
   		const params = {
-  			'api_key': '854536555581142',
+  			'api_key': '917873567416946',
   			'timestamp': timestamp,
   			'upload_preset': uploadPreset,
   			'signature': signature
   		}
 
   		APIManager.uploadFile(url, image, params)
-      console.log('url')
-  		.then((uploaded) => {
-  			console.log('Upload Complete: '+JSON.stringify(uploaded))
+  		.then((result) => {
+  			console.log('CREATE FILE Upload Complete: '+JSON.stringify(result))
   			let updated = Object.assign({}, this.state.post)
-  			updated['image'] = uploaded['secure_url']
+  			updated['image'] = result['secure_url']
   			this.setState({
   				post: updated
   			})
@@ -44,20 +52,17 @@ class CreateFile extends Component{
   	}
 
   render(){
+		
     return(
       <div>
-
         <DropZone onDrop={this.imageSelected.bind(this)}>
-        <label>Upload Image</label>
-
+        	<label>Upload Image</label>
         </DropZone>
-
 
 
       </div>
     )
   }
 }
-
 
 export default CreateFile
