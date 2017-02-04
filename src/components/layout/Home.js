@@ -9,10 +9,12 @@ class Home extends Component{
 
     return(
         <div>
-        <h1>Home Container</h1>
-          <Account /><br />
-          <Files /> <br />
-          <Link to="/profile/">Profile</Link>
+
+        <h1>Home Layout</h1>
+
+          <Files />
+
+
         </div>
     )
   }
