@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { Authenticate } from '../view'
 import { connect } from 'react-redux'
-import actions from '../../actions'
 
 class Account extends Component{
   
@@ -28,8 +27,8 @@ class Account extends Component{
     this.props.logout()
   }
   
+
   render(){
-    
     return(
       <div>
       {
@@ -50,7 +49,7 @@ class Account extends Component{
 
 const stateToProps = (state)=>{
   return{
-    user: state.account.user
+
   }
 }
 
@@ -60,6 +59,7 @@ const dispatchToProps = (dispatch)=>{
     register: (params) => dispatch(actions.register(params)),
     fetchCurrentUser:()=> dispatch(actions.fetchCurrentUser()),
     logout:()=> dispatch(actions.logout())
+
   }
 }
 
