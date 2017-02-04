@@ -52,14 +52,14 @@ class CreateFile extends Component{
   	}
 
   render(){
-		
+		const imageRender = (this.state.post.image.length == 0) ? null : <div><img src={this.state.post.image} /></div>
     return(
       <div>
         <DropZone onDrop={this.imageSelected.bind(this)}>
         	<label>Upload Image</label>
         </DropZone>
-
-
+				<br />
+				{imageRender}
       </div>
     )
   }
