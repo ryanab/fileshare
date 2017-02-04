@@ -1,7 +1,13 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import actions from '../../actions'
 
 
 class Profile extends Component{
+	componentDidMount(){
+		console.log('PROFILE: '+JSON.stringify(this.props.profile))
+	}
+
   render(){
     return(
       <div>
@@ -12,5 +18,16 @@ class Profile extends Component{
   }
 }
 
+const stateToProps = (state) => {
+	return {
+		profile: state.profile
+	}
+}
 
-export default Profile
+const dispatchToProps = (dispatch) => {
+	return {
+		fetchProfile: (id) => dispatch(actions.fetchProfile(id))
+	}
+}
+
+export default connect(stateToProps, dispatchToProps)(Profile)

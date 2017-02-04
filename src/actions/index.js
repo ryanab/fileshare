@@ -56,6 +56,12 @@ export default{
     }
   },
 
+  fetchProfile: (id) => {
+    return (dispatch) => {
+      return dispatch(getRequest('/api/profile/'+id, null, constants.PROFILE_RECEIVED))
+    }
+  },
+
   logout: () => {
     return (dispatch) => {
       return dispatch(getRequest('account/logout', null, constants.USER_LOGGED_IN))
