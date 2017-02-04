@@ -1,7 +1,5 @@
 import React,{ Component } from 'react'
 
-
-
 class Authenticate extends Component {
   constructor(){
     super()
@@ -13,6 +11,7 @@ class Authenticate extends Component {
       }
     }
   }
+
   updateCredentials(field, event){
     event.preventDefault()
     let updated = Object.assign({}, this.state.credentials)
@@ -22,7 +21,6 @@ class Authenticate extends Component {
     })
   }
 
-
   register(event){
     event.preventDefault()
     this.props.onRegister(this.state.credentials)
@@ -31,17 +29,16 @@ class Authenticate extends Component {
   login(field, event){
     this.props.onLogin(this.state.credentials)
   }
+
   render(){
     return(
       <div>
         <h2>Authenticate View</h2>
           <div>
             <h4>Register</h4>
-
             <input onChange={this.updateCredentials.bind(this, 'email')}  placeholder="Email" type="text" /><br />
             <input onChange={this.updateCredentials.bind(this, 'password')}  placeholder="Password" type="password" /><br />
             <input onChange={this.updateCredentials.bind(this, 'firstName')}  placeholder="First Name" type="password" /><br />
-
             <button onClick={this.register.bind(this)}>Join</button>
           </div>
           <hr />
