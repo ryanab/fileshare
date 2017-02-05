@@ -18,11 +18,13 @@ class CreateFile extends Component{
 
 //cloudinary not authorizing yet
   fileSelected(files){
-			if(files.length==0){
-				alert("File is too large")
+		console.log("FILES: "+ JSON.stringify(files.length))
+			if(files.length == 0){
+				alert('File is too large')
 				return
 			}
   		const selectedFile = files[0]
+			console.log("hello")
   		const cloudName= 'nomadreactjs'
 			const url = 'https://api.cloudinary.com/v1_1/'+cloudName+'/auto/upload'
 
@@ -43,10 +45,6 @@ class CreateFile extends Component{
   		.then((result) => {
   			console.log('CREATE FILE Upload Complete: '+JSON.stringify(result))
 				console.log('Filesize: '+ JSON.stringify(result.bytes))
-				if(result.bytes > 200){
-					alert("Sorry file is too large")
-					return
-				}
   			let updated = Object.assign({}, this.state.post)
   			updated['file'] = result['secure_url']
 				console.log("UPDATED: " + JSON.stringify(updated))
