@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 class ProfileStatic extends Component {
 	render(){
 		return(
-			<div className="post">
+			<div style={{marginLeft:20, marginRight:20, marginTop:0}} className="post">
 				<h1>User Name</h1>
 				<br />
 				<h2>Here are their Uploaded Files</h2>

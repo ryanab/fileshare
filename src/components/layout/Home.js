@@ -10,12 +10,11 @@ class Home extends Component{
 			<div id="wrapper">
 				<div id="main">
 					<div className="post">
-						<h1>Home Container</h1>
 						<Account /><br />
 						<br />
 						<Link to="/profile/">Profile</Link>
 						<br />
-						<Link to="/profile/">FFs ProfileStatic Layout</Link>
+						<Link to="/profile/"><strong>FFs ProfileStatic Layout</strong></Link>
 					</div>
 					<br />
 
