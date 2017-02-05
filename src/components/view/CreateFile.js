@@ -58,7 +58,7 @@ class CreateFile extends Component{
   	}
 
   render(){
-		const types=['img','jpg','gif','png']
+		const types=['img','jpg','gif','png','jpeg','tif','bmp']
 		const renderSample = (types.indexOf(this.state.post.fileType)==-1) ? <h2>Successful Upload</h2> : <img src={this.state.post.file[0]} />
 	const fileRender = (this.state.post.file.length==0) ? null : <div>{renderSample}</div>
 
