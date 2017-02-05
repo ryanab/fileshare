@@ -18,13 +18,12 @@ class CreateFile extends Component{
 
 //cloudinary not authorizing yet
   fileSelected(files){
-  		console.log('fileSelected: ')
-  		const selectFile = files[0]
-
+			if(files.length==0){
+				alert("File is too large")
+				return
+			}
+  		const selectedFile = files[0]
   		const cloudName= 'nomadreactjs'
-  		// const url = 'https://api.cloudinary.com/v1_1/'+cloudName+'/image/upload'
-			// the line below should allow any type file to upload
-			//in setState maybe change image to file and in all other locations
 			const url = 'https://api.cloudinary.com/v1_1/'+cloudName+'/auto/upload'
 
   		const timestamp = Date.now()/1000
@@ -40,11 +39,17 @@ class CreateFile extends Component{
   			'signature': signature
   		}
 
-  		APIManager.uploadFile(url, selectFile, params)
+  		APIManager.uploadFile(url, selectedFile, params)
   		.then((result) => {
   			console.log('CREATE FILE Upload Complete: '+JSON.stringify(result))
+				console.log('Filesize: '+ JSON.stringify(result.bytes))
+				if(result.bytes > 200){
+					alert("Sorry file is too large")
+					return
+				}
   			let updated = Object.assign({}, this.state.post)
   			updated['file'] = result['secure_url']
+				console.log("UPDATED: " + JSON.stringify(updated))
   			this.setState({
   				post: updated
   			})
@@ -58,7 +63,7 @@ class CreateFile extends Component{
 		const fileRender = (this.state.post.file.length == 0) ? null : <div><img src={this.state.post.file} /></div>
     return(
       <div>
-        <DropZone style={{border:'none'}} onDrop={this.fileSelected.bind(this)}>
+        <DropZone style={{border:'none'}} onDrop={this.fileSelected.bind(this)} maxSize={10000}>
         	<button>Upload File</button>
         </DropZone>
 				<br />

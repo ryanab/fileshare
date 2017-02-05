@@ -52,7 +52,6 @@ export default {
 
 	        let uploadRequest = superagent.post(url)
 	        uploadRequest.attach('file', file)
-
 	        if (params != null){
 		        Object.keys(params).forEach((key) => {
 			        uploadRequest.field(key, params[key])
@@ -61,13 +60,12 @@ export default {
 
 	        uploadRequest.end((err, resp) => {
 	        	if (err){
-					reject(err)
-	              	return
+							reject(err)
+	            return
 	        	}
-
-	        	const uploaded = resp.body
-	        	console.log('UPLOAD COMPLETE: '+JSON.stringify(uploaded))
-	        	resolve(uploaded)
+						const uploaded = resp.body
+			      resolve(uploaded)
+						
 	        })
 		})
 	}
