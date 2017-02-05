@@ -10,7 +10,7 @@ class CreateFile extends Component{
 		super()
 		this.state={
 			post:{
-				file:'',
+				file:[],
 				fileType:''
 
 			}
@@ -45,7 +45,8 @@ class CreateFile extends Component{
   		APIManager.uploadFile(url, selectedFile, params)
   		.then((result) => {
   			let updated = Object.assign({}, this.state.post)
-  			updated['file'] = result['secure_url']
+  			updated['file'].unshift(result['secure_url'])
+				console.log("UPDATED: " + JSON.stringify(updated['file']))
 				updated['fileType']= result.format
   			this.setState({
   				post: updated
@@ -57,8 +58,10 @@ class CreateFile extends Component{
   	}
 
   render(){
+		const types=['img','jpg','gif','png']
+		const renderSample = (types.indexOf(this.state.post.fileType)==-1) ? <h2>Successful Upload</h2> : <img src={this.state.post.file[0]} />
+	const fileRender = (this.state.post.file.length==0) ? null : <div>{renderSample}</div>
 
-		const fileRender = (this.state.post.file.length == 0) ? null : <div><img src={this.state.post.file} /></div>
     return(
       <div>
         <DropZone style={{border:'none'}} onDrop={this.fileSelected.bind(this)} maxSize={10000000}>
