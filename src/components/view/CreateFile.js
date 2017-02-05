@@ -10,19 +10,22 @@ class CreateFile extends Component{
 		super()
 		this.state={
 			post:{
-				image:''
+				file:''
 
 			}
 		}
 	}
 
 //cloudinary not authorizing yet
-  imageSelected(files){
-  		console.log('imageSelected: ')
-  		const image = files[0]
+  fileSelected(files){
+  		console.log('fileSelected: ')
+  		const selectFile = files[0]
 
   		const cloudName= 'nomadreactjs'
-  		const url = 'https://api.cloudinary.com/v1_1/'+cloudName+'/image/upload'
+  		// const url = 'https://api.cloudinary.com/v1_1/'+cloudName+'/image/upload'
+			// the line below should allow any type file to upload
+			//in setState maybe change image to file and in all other locations
+			const url = 'https://api.cloudinary.com/v1_1/'+cloudName+'/auto/upload'
 
   		const timestamp = Date.now()/1000
   		const uploadPreset='uqj0leyv'
@@ -37,29 +40,29 @@ class CreateFile extends Component{
   			'signature': signature
   		}
 
-  		APIManager.uploadFile(url, image, params)
+  		APIManager.uploadFile(url, selectFile, params)
   		.then((result) => {
   			console.log('CREATE FILE Upload Complete: '+JSON.stringify(result))
   			let updated = Object.assign({}, this.state.post)
-  			updated['image'] = result['secure_url']
+  			updated['file'] = result['secure_url']
   			this.setState({
   				post: updated
   			})
   		})
   		.catch((err) => {
-  			alert(err)
+  			alert(err.message)
   		})
   	}
 
   render(){
-		const imageRender = (this.state.post.image.length == 0) ? null : <div><img src={this.state.post.image} /></div>
+		const fileRender = (this.state.post.file.length == 0) ? null : <div><img src={this.state.post.file} /></div>
     return(
       <div>
-        <DropZone onDrop={this.imageSelected.bind(this)}>
-        	<label>Upload Image</label>
+        <DropZone style={{border:'none'}} onDrop={this.fileSelected.bind(this)}>
+        	<button>Upload File</button>
         </DropZone>
 				<br />
-				{imageRender}
+				{fileRender}
       </div>
     )
   }
