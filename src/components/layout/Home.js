@@ -5,11 +5,12 @@ import { ProfileLayout} from '../layout'
 class Home extends Component{
   render(){
     return(
-        <div>
-          <h1>Home Layout</h1>
-          <Files />
-          <Account />
-        </div>
+      <div>
+      	<h1>Home Layout</h1>
+        <Files />
+        <Account />
+        <ProfileLayout />
+      </div>
     )
   }
 }

@@ -11,7 +11,7 @@ const app = (
   <Provider store={store.configureStore()}>
     <Router history={browserHistory}>
       <Route path="/" component={Home} /><br />
-      <Route path="/profile/" component={ProfileLayout} />
+      <Route path="/profile/:id" component={ProfileLayout} />
     </Router>
   </Provider>
 )
