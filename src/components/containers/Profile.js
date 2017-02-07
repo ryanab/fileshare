@@ -10,14 +10,15 @@ class Profile extends Component{
 	//	console.log(JSON.stringify(this.state))
 		 // console.log('PROFILES: '+JSON.stringify(response.body))
 	
-		// const id = this.props.profile.id
+		const id = this.props.params.id
+		console.log(JSON.stringify(this.props))
 		// if(this.props.profiles[id] != null)
 		// 	return
 		// this.props.fetchProfile(id)
 
-		 this.props.fetchProfile()
+		 this.props.fetchProfile({_id: id})
     .then(result=>{
-     // console.log(JSON.stringify(page))
+     console.log(JSON.stringify(result))
      console.log('whatever ')
     })
    
