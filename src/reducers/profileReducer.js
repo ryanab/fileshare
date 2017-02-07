@@ -1,7 +1,7 @@
 import constants from '../constants'
 
 var initialState = {
-
+	page: null
 }
 
 export default (state = initialState, action) => {
@@ -9,11 +9,13 @@ export default (state = initialState, action) => {
 
 	switch(action.type){
 		case constants.PROFILE_RECEIVED:
-			console.log('PROFILE_RECEIVED: '+JSON.stringify(action.payload))
+		//	console.log('PROFILE_RECEIVED: '+JSON.stringify(action.payload))
 
-			let profile = action.payload
-			updated[profile.id] = profile
 
+		//	updated.page = action.payload
+		updated['page'] = action.payload
+			console.log('PROFILE_RECEIVED: '+JSON.stringify(updated))
+			
 			return updated
 		
 		default:

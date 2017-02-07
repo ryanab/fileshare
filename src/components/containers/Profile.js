@@ -1,18 +1,41 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-
+import actions from '../../actions'
 
 
 class Profile extends Component{
-	componentDidMount(){
-		console.log('PROFILE: '+JSON.stringify(this.props.profile))
 	
+
+	componentDidMount(){
+	//	console.log(JSON.stringify(this.state))
+		 // console.log('PROFILES: '+JSON.stringify(response.body))
+	
+		// const id = this.props.profile.id
+		// if(this.props.profiles[id] != null)
+		// 	return
+		// this.props.fetchProfile(id)
+
+		 this.props.fetchProfile()
+    .then(result=>{
+     // console.log(JSON.stringify(page))
+     console.log('whatever ')
+    })
+   
+    
 	}
 
+
+
   render(){
-    return(
+  	// const profile = this.props.profile[this.props.id]
+
+
+    return (
+    	
       <div>
-      	<h3>{this.props.profile.firstName}'s files</h3><br />
+
+      	<h3>'s files</h3><br />
+      	<h2></h2>
       	<div>
       		<ol>
       			<li>First File</li>
@@ -29,7 +52,7 @@ class Profile extends Component{
 const stateToProps = (state) => {
 	return {
 		file: state.file,
-		profile: state.profile
+		profile: state.profile.page
 	}
 }
 
