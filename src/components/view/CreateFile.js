@@ -42,11 +42,9 @@ class CreateFile extends Component{
 
 		APIManager.uploadFile(url, selectedFile, params)
 		.then((result) => {
-			console.log(JSON.stringify(result))
 			let updated = Object.assign({}, this.state.post)
 			updated['fileUrl'] = result['secure_url']
 			updated['fileExtension']= result.format
-			this.props.createFile(updated)
 			this.setState({
 				post: updated
 			})
@@ -73,7 +71,6 @@ class CreateFile extends Component{
         </DropZone>
 				<br />
 				<button type="submit" onClick={this.props.createFile.bind(this)}>Create File</button>
-				{fileSuccessMessage}
       </div>
     )
   }

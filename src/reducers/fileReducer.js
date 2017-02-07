@@ -19,7 +19,7 @@ export default(state = initialState, action) => {
       return updated
 
     case constants.FILE_CREATED:
-      console.log('FILE CREATED: ' + JSON.stringify(action.payload))
+      console.log('FILE CREATED: ')
       return updated
 
     default:
