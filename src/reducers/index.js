@@ -1,6 +1,7 @@
 import accountReducer from './accountReducer'
-
+import fileReducer from './fileReducer'
 
 export{
-  accountReducer
+  accountReducer,
+  fileReducer
 }

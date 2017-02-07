@@ -30,7 +30,6 @@ class Account extends Component{
   
 
   render(){
-    console.log('RENDER: ' + JSON.stringify(this.props.user))
     return(
       <div>
       {
