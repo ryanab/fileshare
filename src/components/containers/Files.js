@@ -9,7 +9,7 @@ class Files extends Component{
     super()
     this.state = {
       file:{
-        fileType: 'image' //default for now until we write function to determine fileType        
+        fileCategory: 'misc' //default for now until we write function to determine fileType        
       }
     }
   }
