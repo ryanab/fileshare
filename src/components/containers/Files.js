@@ -8,7 +8,9 @@ class Files extends Component{
   constructor(){
     super()
     this.state = {
-      file:{}
+      file:{
+        fileType: 'image' //default for now until we write function to determine fileType        
+      }
     }
   }
 
@@ -16,12 +18,16 @@ class Files extends Component{
     this.props.fetchFiles({filetype: 'image'})
   }
 
-  createFile(params){
-    params[this.props.profile] = this.props.user
-    this.props.createFile(params)
+  createFile(){
+    event.preventDefault()
+    let file = this.state.file
+    file['profile'] = this.props.user
+    this.props.createFile(this.state.file)
   }
 
   updateFileInfo(key, value){
+    event.preventDefault()
+    console.log(value)
     let updated = Object.assign({}, this.state.file)
     updated[key] = value    
     this.setState({

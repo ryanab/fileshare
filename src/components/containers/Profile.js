@@ -7,7 +7,7 @@ class Profile extends Component{
       <div>
       	<h2>Donald's Profile</h2>
       	<h3>Donald's Posts</h3>
-      </div>
+    	</div>
     )
   }
 }
