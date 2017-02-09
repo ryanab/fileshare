@@ -60,5 +60,17 @@ export default{
     return (dispatch) => {
       return dispatch(getRequest('account/logout', null, constants.USER_LOGGED_IN))
     }
+  },
+
+  fetchFiles: (params) => {
+    return (dispatch) => {
+      return dispatch(getRequest('/api/file', params, constants.FILES_RECEIVED))
+    }
+  },
+
+  createFile: (params) => {
+    return (dispatch) =>  {
+      return dispatch(postRequest('/api/file', params, constants.FILE_CREATED))
+    }
   }
 }

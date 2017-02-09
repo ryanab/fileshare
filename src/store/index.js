@@ -1,13 +1,14 @@
 import { createStore, combineReducers, applyMiddleware } from 'redux'
 import thunk from 'redux-thunk'
-import { accountReducer } from '../reducers'
+import { accountReducer, fileReducer } from '../reducers'
 
 var store;
 
 export default {
 	configureStore: () => {
 		const reducers = combineReducers({
-			account: accountReducer
+			account: accountReducer,
+			files: fileReducer
 		})
 
 		store = createStore(
