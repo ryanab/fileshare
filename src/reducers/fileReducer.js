@@ -1,7 +1,7 @@
 import constants from '../constants'
 
 var initialState = {
-  types: ['image', 'pdf', 'video','misc'],
+  types: ['all','image', 'pdf', 'video','audio','misc'],
   selected: 'image'
 }
 

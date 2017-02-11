@@ -46,12 +46,7 @@ class CreateFile extends Component{
 	}
 
   render(){
-		// const file = this.state.file
-		// const imageExtensionTypes=['img','jpg','gif','png','jpeg','tif','bmp']
-		// const renderUploadSuccess = (imageExtensionTypes.indexOf(file.fileType)==-1) ?
-		// 	<h2>Upload Successful</h2> : <img src={file.fileUrl} />
-		// const fileSuccessMessage = (file.fileUrl.length==0) ? null : <div>{renderUploadSuccess}</div>
-		// //need some validations on file inputs below
+	
     return(
       <div>
       	<input onChange={this.updateFileInfo.bind(this, 'fileTitle')} placeholder="File Title" type="text" /><br />
