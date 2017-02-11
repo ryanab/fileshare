@@ -41,6 +41,9 @@ class Files extends Component{
 			file['fileCategory'] = 'misc'
 		}
 
+		console.log("EXTENSION: " + JSON.stringify(fileExtension))
+		console.log("STATE:" + JSON.stringify(this.state.file))
+
     file['profile'] = this.props.user
     this.props.createFile(this.state.file)
 
