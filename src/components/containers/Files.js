@@ -9,7 +9,7 @@ class Files extends Component{
     super()
     this.state = {
       file:{
-        fileCategory: 'misc' //default for now until we write function to determine fileType        
+        fileCategory: 'misc' //default for now until we write function to determine fileType
       }
     }
   }
@@ -29,9 +29,9 @@ class Files extends Component{
     event.preventDefault()
     console.log(value)
     let updated = Object.assign({}, this.state.file)
-    updated[key] = value    
+    updated[key] = value
     this.setState({
-      file: updated            
+      file: updated
     })
   }
 
@@ -48,7 +48,7 @@ class Files extends Component{
 const stateToProps = (state) => {
   return {
     files: state.files,
-    user: state.account.user    
+    user: state.account.user
   }
 }
 

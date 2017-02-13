@@ -1,11 +1,10 @@
 import React, { Component } from 'react'
-import { Files } from '../containers'
+import { Account } from '../containers'
 import { Link } from 'react-router'
 
-class Home extends Component {
-  render(){
-    return(
-
+class AuthLayout extends Component {
+	render(){
+		return (
 			<div id="wrapper">
 				<header id="header">
 					<h1><Link to="/">Fileshare</Link></h1>
@@ -19,22 +18,16 @@ class Home extends Component {
 						</ul>
 					</nav>
 				</header>
-
 				<div id="main">
 					<div className="post">
-						<Link to="/profile/">Profile</Link><br />
-						<Link to="/profile/"><strong>FFs Profile</strong></Link>
 
-						<div style={{paddingTop:20}}>
-							<Files />
-						</div>
+						<Account />
 
 					</div>
 				</div>
-
 			</div>
-    )
-  }
+		)
+	}
 }
 
-export default Home
+export default AuthLayout

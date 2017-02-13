@@ -1,4 +1,4 @@
-import React,{ Component } from 'react'
+import React, { Component } from 'react'
 
 class Authenticate extends Component {
   constructor(){
@@ -33,7 +33,6 @@ class Authenticate extends Component {
   render(){
     return(
       <div>
-        <h2>Authenticate View</h2>
           <div>
             <h4>Register</h4>
             <input onChange={this.updateCredentials.bind(this, 'email')}  placeholder="Email" type="text" /><br />
