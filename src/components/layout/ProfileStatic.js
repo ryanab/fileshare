@@ -5,7 +5,6 @@ class ProfileStatic extends Component {
 	render(){
 		return(
 			<div>
-				ProfileStatic Layout
 				<Profile />
 			</div>
 		)

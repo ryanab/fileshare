@@ -1,13 +1,13 @@
 import React, { Component } from 'react'
+import { ProfileStatic } from '../view'
 
 
 class Profile extends Component{
   render(){
     return(
       <div>
-      	<h2>Donald's Profile</h2>
-      	<h3>Donald's Posts</h3>
-    	</div>
+				<ProfileStatic />
+      </div>
     )
   }
 }

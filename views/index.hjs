@@ -18,12 +18,13 @@
 						<h1><a href="/">Home</a></h1>
 						<nav class="links">
 							<ul>
-								<li><a href="#">Image</a></li>
-								<li><a href="#">Video</a></li>
-								<li><a href="#">PDF</a></li>
-								<li><a href="#">Misc</a></li>
+								<li><a href="/">Image</a></li>
+								<li><a href="/">Video</a></li>
+								<li><a href="/">PDF</a></li>
+								<li><a href="/">Misc</a></li>
 							</ul>
 						</nav>
+
 						<!-- <nav class="main">
 							<ul>
 								<li class="search">
@@ -33,10 +34,11 @@
 									</form>
 							</ul>
 						</nav> -->
+
 					</header>
 
 				<!-- Menu -->
-					<section id="menu">
+					<!-- <section id="menu"> -->
 
 						<!-- Search -->
 							<!-- <section>
@@ -46,7 +48,7 @@
 							</section> -->
 
 						<!-- Links -->
-							<section>
+							<!-- <section>
 								<ul class="links">
 									<li>
 										<a href="#">
@@ -54,41 +56,23 @@
 											<p>Feugiat tempus veroeros dolor</p>
 										</a>
 									</li>
-									<li>
-										<a href="#">
-											<h3>Dolor sit amet</h3>
-											<p>Sed vitae justo condimentum</p>
-										</a>
-									</li>
-									<li>
-										<a href="#">
-											<h3>Feugiat veroeros</h3>
-											<p>Phasellus sed ultricies mi congue</p>
-										</a>
-									</li>
-									<li>
-										<a href="#">
-											<h3>Etiam sed consequat</h3>
-											<p>Porta lectus amet ultricies</p>
-										</a>
-									</li>
 								</ul>
-							</section>
+							</section> -->
 
 						<!-- Actions -->
-							<section>
+							<!-- <section>
 								<ul class="actions vertical">
 									<li><a href="#" class="button big fit">Log In</a></li>
 								</ul>
 							</section>
 
-					</section>
+					</section> -->
 
 				<!-- Main -->
-					<div id="main">
+					<!-- <div id="main"> -->
 
 						<!-- Post -->
-							<article class="post">
+							<!-- <article class="post">
 								<header>
 									<div class="title">
 										<h2><a href="#">forage lumbersexual hashtag</a></h2>
@@ -109,26 +93,26 @@
 									</ul>
 								</footer>
 							</article>
-					</div>
+					</div> -->
 
 				<!-- Sidebar -->
-					<section id="sidebar">
+					<!-- <section id="sidebar"> -->
 
 						<!-- Intro -->
-							<section id="intro">
+							<!-- <section id="intro">
 								<a href="#" class="logo"><img src="images/logo.jpg" alt="" /></a>
 								<header>
 									<h2>Fileshare</h2>
 									<p>Share stuff with your friends</p>
 								</header>
-							</section>
+							</section> -->
 
 						<!-- Mini Posts -->
-							<section>
-								<div class="mini-posts">
+							<!-- <section>
+								<div class="mini-posts"> -->
 
 									<!-- Mini Post -->
-										<article class="mini-post">
+										<!-- <article class="mini-post">
 											<header>
 												<h3><a href="#">Placeholder Mini Post</a></h3>
 												<time class="published" datetime="2015-10-20">October 20, 2015</time>
@@ -138,9 +122,9 @@
 										</article>
 								</div>
 							</section>
-
+ -->
 						<!-- Posts List -->
-							<section>
+							<!-- <section>
 								<ul class="posts">
 									<li>
 										<article>
@@ -152,8 +136,8 @@
 										</article>
 									</li>
 								</ul>
-							</section>
-					</section>
+							</section> -->
+					<!-- </section> -->
 			</div>
 
 		<!-- Scripts -->
