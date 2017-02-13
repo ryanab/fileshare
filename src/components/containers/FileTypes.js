@@ -11,6 +11,7 @@ class FileTypes extends Component{
 
 	selectFileType(fileType,event){
 		console.log('selectFileType: ' + fileType)
+		event.preventDefault()
 		 this.props.selectFileType(fileType)
 	}
 

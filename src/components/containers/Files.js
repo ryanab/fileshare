@@ -63,7 +63,7 @@ class Files extends Component{
 
   render(){
 		const files = this.props.files.completeFileList
-		// console.log("FILES: " + JSON.stringify(files))
+		 console.log("FILES: " + JSON.stringify(files))
     return(
       <div>
 				<h2>hello</h2>
