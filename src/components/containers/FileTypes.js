@@ -8,10 +8,26 @@ class FileTypes extends Component{
 	componentDidMount(){
 		console.log("FILETYPES STATE: " + JSON.stringify(this.props.file.types))
 	}
+
+	selectFileType(fileType,event){
+		console.log('selectFileType: ' + fileType)
+		 this.props.selectFileType(fileType)
+	}
+
 	render(){
+		let content = this.props.file.types.map((fileType) => {
+			return (
+				<li key={fileType}>
+					<a onClick={this.selectFileType.bind(this, fileType)} href="#">
+						{fileType}
+					</a>
+				</li>
+			)
+		})
+
 		return(
 			<div>
-
+				<ul>{content}</ul>
 			</div>
 		)
 	}

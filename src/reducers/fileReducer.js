@@ -38,6 +38,7 @@ export default(state = initialState, action) => {
 			// console.log('FileREDUCER FILE_CREATED: ' + JSON.stringify(updated))
       return updated
 		case constants.FILE_TYPE_SELECTED:
+		console.log('FILE_TYPE_SELECTED: '+ JSON.stringify(action.payload))
 			updated['typeSelected'] = action.payload
 			return updated
 
