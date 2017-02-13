@@ -16,9 +16,10 @@ class Files extends Component{
   }
 
   componentDidMount(){
-		console.log("FILES:" + JSON.stringify(this.props.files))
+
 		console.log("USER: " + JSON.stringify(this.props.user))
-    this.props.fetchFiles({filetype: 'image'})
+    this.props.fetchFiles({})
+		console.log("FILESFETCHED:" + JSON.stringify(this.props.files))
   }
 
   createFile(){
@@ -51,7 +52,7 @@ class Files extends Component{
 
   updateFileInfo(key, value){
     event.preventDefault()
-    console.log("VALUE" + value)
+    // console.log("VALUE" + value)
     let updated = Object.assign({}, this.state.file)
     updated[key] = value
     this.setState({
@@ -61,11 +62,27 @@ class Files extends Component{
   }
 
   render(){
+		const files = this.props.files.completeFileList
+		// console.log("FILES: " + JSON.stringify(files))
     return(
       <div>
-        <File  />< br />
+				<h2>hello</h2>
+				<ol>
+					{
+						this.props.files.completeFileList.map((file,i)=>{
+							return(
+								<div key={i}>
+									<li>{file.fileTitle.toUpperCase()}: <img src={file.fileUrl} /></li>
+								</div>
+							)
+						})
+					}
+			</ol>
+
+        <File />< br />
         <CreateFile createFile={this.createFile.bind(this)} updateFileInfo={this.updateFileInfo.bind(this)}/>
-      </div>
+
+			</div>
     )
   }
 }
