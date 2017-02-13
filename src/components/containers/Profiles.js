@@ -9,16 +9,16 @@ class Profiles extends Component {
 		if(this.props.profiles != null)
 			return
 
-		console.log('PROFILES: '+JSON.stringify(this.props))	
+		console.log('PROFILES: '+JSON.stringify(this.props.profiles))	
 	}
 
 
  render(){
- 	const profilesList = this.props.profiles
+ 	// const profilesList = this.props.profiles
 
  	return(
  		<div>
- 			{
+ 		{/*	{
  				(profilesList == null) ? null : profilesList.map((profile, i) => {
  					return (
  						<ul>
@@ -27,6 +27,7 @@ class Profiles extends Component {
  					)
  				})
  			}
+ 		*/}
  		</div>
  	)
  }
@@ -34,7 +35,7 @@ class Profiles extends Component {
 
 const stateToProps = (state) => {
 	return {
-		profiles: state.profiles
+		profiles: state.profile
 	}
 }
 

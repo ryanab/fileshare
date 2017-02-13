@@ -11,7 +11,7 @@ class Home extends Component{
         <Files />
         <Account />
         
-        <Link to={'/api/profile'}>Profile</Link>
+        <Link to='/profiles'>Profile</Link>
         <ProfileLayout />
       </div>
     )
