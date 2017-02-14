@@ -71,7 +71,7 @@ class Files extends Component{
 		const userName = (this.props.user == null) ? 'anonymous':<span> {this.props.user.firstName}</span>
 		const fileTypeIcons = ["fa fa-file-picture-o fa-3x","fa-file-movie-o fa-3x","fa fa-file-pdf-o fa-3x","fa fa-file-audio-o fa-3x","fa fa-question-circle fa-3x"]
 		const fileCategories = ['image','video','pdf','audio','misc']
-		
+
     return(
       <div>
 				<ol>
@@ -81,7 +81,8 @@ class Files extends Component{
 								<div key={i}>
 									<li><i className={fileTypeIcons[fileCategories.indexOf(file.fileCategory)]} style={{paddingRight:10}}></i>
 									 {file.fileTitle} created by {userName}<br /><br />
-								 <img src={file.fileUrl} /><br />{file.fileCategory}<br />
+								 		{(file.fileCategory=='image') ? <span><img src={file.fileUrl} /></span> : null}
+								 		<br /><br />
 									</li>
 								</div>
 							)
