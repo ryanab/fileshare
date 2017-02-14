@@ -6,6 +6,7 @@ const getRequest = (path, params, actionType)=>{
   return(dispatch) =>
     APIManager.get(path, params)
     .then(response=>{
+      console.log(JSON.stringify(response))
       const payload = response.results || response.result || response.user
       dispatch({
         type: actionType,
@@ -53,6 +54,18 @@ export default{
   fetchCurrentUser: ()=>{
     return(dispatch) => {
       return dispatch(getRequest('account/currentuser', null, constants.USER_LOGGED_IN))
+    }
+  },
+
+  fetchProfiles: (params) => {
+    return (dispatch) => {
+      return dispatch(getRequest('/api/profile', params, constants.PROFILES_RECEIVED))
+    }
+  },
+
+  fetchProfile: (id) => {
+    return (dispatch) => {
+      return dispatch(getRequest('/api/profile/'+id, null, constants.PROFILE_RECEIVED))
     }
   },
 

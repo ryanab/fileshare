@@ -14,6 +14,7 @@ ProfileSchema.methods.summary = function(){
 		password: this.password,
 		firstName: this.firstName,
 		timestamp: this.timestamp,
+		image: this.image,
 		id: this._id.toString()
 	}
 	return summary
