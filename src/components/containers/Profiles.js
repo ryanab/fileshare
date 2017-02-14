@@ -6,28 +6,30 @@ import Profile from '../containers'
 
 class Profiles extends Component {
 	componentDidMount(){
-		if(this.props.profiles != null)
-			return
+		this.props.fetchProfiles(null)
 
-		console.log('PROFILES: '+JSON.stringify(this.props.profiles))	
+		// if(this.props.profiles != null)
+		// 	return
+		// console.log('PROFILES: '+JSON.stringify(this.props.profiles))	
 	}
 
 
  render(){
- 	// const profilesList = this.props.profiles
+ 	 const profilesList = this.props.profiles
 
  	return(
  		<div>
- 		{/*	{
- 				(profilesList == null) ? null : profilesList.map((profile, i) => {
- 					return (
- 						<ul>
- 							<li>{profile.username}</li>
- 						</ul>
- 					)
- 				})
- 			}
- 		*/}
+ 		{ 
+ 			(profilesList == null) ? <h2>Nothing found</h2> :
+ 			profilesList.map((profile, i) => {
+ 				return (
+ 					<div key={profile.id}>
+ 						<h2>{profile.firstName}</h2>
+ 						<h3>{profile.email}</h3>
+ 					</div>
+ 				)
+ 			})
+ 		}
  		</div>
  	)
  }
@@ -35,7 +37,7 @@ class Profiles extends Component {
 
 const stateToProps = (state) => {
 	return {
-		profiles: state.profile
+		profiles: state.profile.all
 	}
 }
 

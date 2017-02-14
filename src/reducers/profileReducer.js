@@ -1,7 +1,7 @@
 import constants from '../constants'
 
 var initialState = {
-	
+	all: null
 }
 
 export default (state = initialState, action) => {
@@ -9,19 +9,15 @@ export default (state = initialState, action) => {
 
 	switch(action.type){
 		case constants.PROFILES_RECEIVED:
-		
-		const keys = Object.keys(action.params)
-		keys.forEach((key, i) => {
-			const value = action.params[key]
-			updated[value] = action.payload
-		})
-		action.payload.forEach((profile, i) => {
-			updated[profile.id] = profile
-		})
+		//console.log('PROFILES_RECEIVED: '+JSON.stringify(action.payload))
 
-		// //	updated.page = action.payload
-		// updated['page'] = action.payload
-		// 	console.log('PROFILE_RECEIVED: '+JSON.stringify(updated))
+			let profiles = action.payload
+			updated['all'] = profiles
+			
+			profiles.forEach((profile, i) => {
+			 let id =	profile.id
+			 updated[id] = profile 
+			})
 			
 			return updated
 		

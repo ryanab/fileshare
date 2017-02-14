@@ -30,11 +30,8 @@ class Profile extends Component{
   render(){
   	// const profile = this.props.profile[this.props.id]
 
-
-    return (
-    	
+    return (	
       <div>
-
       	<h3>'s files</h3><br />
       	<h2></h2>
       	<div>
@@ -53,7 +50,7 @@ class Profile extends Component{
 const stateToProps = (state) => {
 	return {
 		file: state.file,
-		profile: state.profile.page
+		profile: state.profile
 	}
 }
 
