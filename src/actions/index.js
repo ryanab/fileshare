@@ -72,12 +72,5 @@ export default{
     return (dispatch) =>  {
       return dispatch(postRequest('/api/file', params, constants.FILE_CREATED))
     }
-  },
-
-	selectFileType: (fileType) => {
-		return{
-			type:constants.FILE_TYPE_SELECTED,
-			payload: fileType
-		}
-	}
+  }
 }
