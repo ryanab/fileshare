@@ -1,6 +1,5 @@
 import { createStore, combineReducers, applyMiddleware } from 'redux'
 import thunk from 'redux-thunk'
-import { accountReducer, fileReducer } from '../reducers'
 import { accountReducer, profileReducer, fileReducer } from '../reducers'
 
 var store;
