@@ -33,13 +33,14 @@ class CreateFile extends Component{
 			'upload_preset': uploadPreset,
 			'signature': signature
 		}
-
+		
 		APIManager.uploadFile(url, selectedFile, params)
 		.then((result) => {
 			this.props.updateFileInfo('fileUrl', result['secure_url'])
 			this.props.updateFileInfo('fileExtension', result['format'])
 			return null
 		})
+
 		.catch((err) => {
 			alert(err.message)
 		})

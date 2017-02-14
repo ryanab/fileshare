@@ -7,7 +7,7 @@ class Home extends Component{
     return(
         <div>
           <h1>Home Layout</h1>
-					<FileTypes />
+				
           <Files />
          <Account />
         </div>

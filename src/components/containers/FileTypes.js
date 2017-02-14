@@ -16,7 +16,7 @@ class FileTypes extends Component{
 	}
 
 	render(){
-		let content = this.props.file.types.map((fileType) => {
+		let content = this.props.files.map((fileType) => {
 			return (
 				<li key={fileType}>
 					<a onClick={this.selectFileType.bind(this, fileType)} href="#">

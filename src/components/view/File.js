@@ -4,11 +4,14 @@ import React, { Component } from 'react'
 
 class File extends Component{
   render(){
-		const files = this.props.files.completeFileList
-		console.log("FILE VIEW FILES: " + JSON.stringify(files))
+	{/*	const files = this.props.files.completeFileList
+		const fileExtension = this.props.files.fileExtension
+
+		console.log("FILE EXTENSION: " + JSON.stringify(fileExtension))
+	*/}	
     return(
       <div>
-
+{/*}
 				{
 					files.map((file,i)=>{
 						return(
@@ -18,7 +21,7 @@ class File extends Component{
 						)
 					})
 				}
-
+*/}
       </div>
     )
   }
