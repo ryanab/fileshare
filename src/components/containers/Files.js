@@ -18,7 +18,9 @@ class Files extends Component{
   componentDidMount(){
     this.props.fetchFiles({})
 
+
   }
+
 
   createFile(){
     event.preventDefault()
@@ -68,8 +70,8 @@ class Files extends Component{
 		const files = this.props.files.completeFileList
 		const iconType = null
 		console.log("FILES: " + JSON.stringify(this.props.files))
-		const userName = (this.props.user == null) ? 'anonymous':<span> {this.props.user.firstName}</span>
-		const fileTypeIcons = ["fa fa-file-picture-o fa-3x","fa-file-movie-o fa-3x","fa fa-file-pdf-o fa-3x","fa fa-file-audio-o fa-3x","fa fa-question-circle fa-3x"]
+
+		const fileTypeIcons = ["fa fa-file-picture-o fa-3x","fa-file-movie-o fa-3x","fa fa-file-pdf-o fa-3x","fa fa-file-audio-o fa-3x","fa fa-question-circle-o fa-3x"]
 		const fileCategories = ['image','video','pdf','audio','misc']
 
     return(
@@ -80,7 +82,8 @@ class Files extends Component{
 							return(
 								<div key={i}>
 									<li><i className={fileTypeIcons[fileCategories.indexOf(file.fileCategory)]} style={{paddingRight:10}}></i>
-									 {file.fileTitle} created by {userName}<br /><br />
+									 {file.fileTitle} created by {(file.profile['firstName'] != '') ?  <span>{file.profile['firstName']}</span> : 'anonymous'}
+								 		<br /><br />
 								 		{(file.fileCategory=='image') ? <span><img src={file.fileUrl} /></span> : null}
 								 		<br /><br />
 									</li>
