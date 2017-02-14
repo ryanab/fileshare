@@ -18,8 +18,8 @@ class Profile extends Component{
 
     return (	
       <div>
-      	<h3>{profile.firstName}'s files</h3><br />
-      	<h2></h2>
+      	<h2>{profile.firstName}'s files</h2><br />
+      	<h3>{profile.email}</h3>
       	<div>
       		<ol>
       			<li>First File</li>

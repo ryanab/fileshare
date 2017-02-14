@@ -24,11 +24,8 @@ class Profiles extends Component {
  			(profilesList == null) ? <h2>Nothing found</h2> :
  			profilesList.map((profile, i) => {
  				return (
- 					<Link to={'/profile/'+profile.id}>
-	 					<div key={profile.id}>
-	 						<h2>{profile.firstName}</h2>
-	 						<h3>{profile.email}</h3>
-	 					</div>
+ 					<Link key={profile.id} to={'/profile/'+profile.id}>
+	 					<h2>{profile.firstName}</h2>
  					</Link>
  				)
  			})
