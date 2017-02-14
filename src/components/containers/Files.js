@@ -8,6 +8,7 @@ class Files extends Component{
 
   constructor(){
     super()
+		this.fetchFiles = this.fetchFiles.bind(this)
     this.state = {
       file:{
         fileCategory: 'misc' //default for now until we write function to determine fileType
@@ -15,12 +16,24 @@ class Files extends Component{
     }
   }
 
+	fetchFiles(){
+		if(this.props.files.completeFileList != null){
+			return
+		}
+		this.props.fetchFiles({})
+	}
+
   componentDidMount(){
 
 		console.log("USER: " + JSON.stringify(this.props.user))
     this.props.fetchFiles({})
 		console.log("FILESFETCHED:" + JSON.stringify(this.props.files))
   }
+
+	componentDidUpdate(){
+		console.log('componentDidUpdate')
+		this.fetchFiles({})
+	}
 
   createFile(){
     event.preventDefault()
@@ -66,20 +79,10 @@ class Files extends Component{
 		 console.log("FILES: " + JSON.stringify(files))
     return(
       <div>
-				<h2>hello</h2>
 				<ol>
-					{
-						this.props.files.completeFileList.map((file,i)=>{
-							return(
-								<div key={i}>
-									<li>{file.fileTitle.toUpperCase()}: <img src={file.fileUrl} /></li>
-								</div>
-							)
-						})
-					}
-			</ol>
+				 <File files={this.props.files}/>< br />
+				</ol>
 
-        <File />< br />
         <CreateFile createFile={this.createFile.bind(this)} updateFileInfo={this.updateFileInfo.bind(this)}/>
 
 			</div>

@@ -46,16 +46,16 @@ class CreateFile extends Component{
 	}
 
   render(){
-	
+
     return(
       <div>
-      	<input onChange={this.updateFileInfo.bind(this, 'fileTitle')} placeholder="File Title" type="text" /><br />
+				<DropZone style={{border:'none'}} onDrop={this.fileSelected.bind(this)} maxSize={10000000}>
+				 <button>Choose File</button>
+				</DropZone>
+			 	<br />
+      	<input onChange={this.updateFileInfo.bind(this, 'fileTitle')} placeholder="Title" type="text" /><br />
       	<input onChange={this.updateFileInfo.bind(this, 'fileDescription')} placeholder="File Description" type="text" /><br />
-        <DropZone style={{border:'none'}} onDrop={this.fileSelected.bind(this)} maxSize={10000000}>
-        	<button>Upload File</button>
-        </DropZone>
-				<br />
-				<button type="submit" onClick={this.createFile.bind(this)}>Create File</button>
+				<button type="submit" onClick={this.createFile.bind(this)}>Upload</button>
       </div>
     )
   }
