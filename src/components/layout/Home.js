@@ -12,7 +12,7 @@ class Home extends Component{
         <Account />
         
         <Link to='/profiles'>Profile</Link>
-        <ProfileLayout />
+        
       </div>
     )
   }

@@ -3,6 +3,7 @@ import { APIManager } from '../../utils'
 import { connect } from 'react-redux'
 import actions from '../../actions'
 import Profile from '../containers'
+import { Link } from 'react-router'
 
 class Profiles extends Component {
 	componentDidMount(){
@@ -23,10 +24,12 @@ class Profiles extends Component {
  			(profilesList == null) ? <h2>Nothing found</h2> :
  			profilesList.map((profile, i) => {
  				return (
- 					<div key={profile.id}>
- 						<h2>{profile.firstName}</h2>
- 						<h3>{profile.email}</h3>
- 					</div>
+ 					<Link to={'/profile/'+profile.id}>
+	 					<div key={profile.id}>
+	 						<h2>{profile.firstName}</h2>
+	 						<h3>{profile.email}</h3>
+	 					</div>
+ 					</Link>
  				)
  			})
  		}
