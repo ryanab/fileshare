@@ -69,8 +69,14 @@ class Files extends Component{
 						this.props.files.map((file,i)=>{
 							return(
 								<div key={i}>
-										<li><i className={fileTypeIcons[fileCategories.indexOf(file.fileCategory)]} style={{paddingRight:10}}></i>
-										 {file.fileTitle} created by {(file.profile['firstName'] != '') ?  <span>{file.profile['firstName']}</span> : 'anonymous'}
+										<li>
+											<i className={fileTypeIcons[fileCategories.indexOf(file.fileCategory)]} style={{paddingRight:10}}></i>
+										 	{file.fileTitle} created by&nbsp;
+												{
+													(file.profile['firstName'] != '') ?  <a href='#'>{file.profile['firstName']}</a>
+													:
+													'anonymous'
+												}
 									 		<br /><br />
 									 		{(file.fileCategory=='image') ? <span><img src={file.fileUrl} /></span> : null}
 									 		<br /><br />
