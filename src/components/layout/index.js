@@ -1,11 +1,11 @@
-import Home from './Home'
+import PanHome from './PanHome'
 import ProfileLayout from './ProfileLayout'
 import ProfileStatic from './ProfileStatic'
 import AuthLayout from './AuthLayout'
 
 export{
-  Home,
+  PanHome,
   ProfileLayout,
-	ProfileStatic,
+  ProfileStatic,
   AuthLayout
 }
