@@ -28,7 +28,8 @@ class Home extends Component {
 							</header>
 						</section>
 						<Link to="/profile/">Robs Profile</Link><br />
-						<Link to="/profile/"><strong>FFs Profile</strong></Link>
+						<Link to="/profile/"><strong>FFs Profile</strong></Link><br />
+						<Link to="/profile/"><strong>Forrest Pans Profile</strong></Link>
 					</div>
 				</div>
 
