@@ -37,7 +37,7 @@ class CreateFile extends Component{
 		.then((result) => {
 			this.props.updateFileInfo('fileUrl', result['secure_url'])
 			this.props.updateFileInfo('fileExtension', result['format'])
-			return null 
+			return null
 		})
 		.catch((err) => {
 			alert(err.message)
@@ -53,13 +53,14 @@ class CreateFile extends Component{
 		// //need some validations on file inputs below
     return(
       <div>
-      	<input onChange={this.updateFileInfo.bind(this, 'fileTitle')} placeholder="File Title" type="text" /><br />
-      	<input onChange={this.updateFileInfo.bind(this, 'fileDescription')} placeholder="File Description" type="text" /><br />
-        <DropZone style={{border:'none'}} onDrop={this.fileSelected.bind(this)} maxSize={10000000}>
-        	<button>Upload File</button>
-        </DropZone>
+				<DropZone style={{border:'none'}} onDrop={this.fileSelected.bind(this)} maxSize={10000000}>
+					<button>Choose File</button>
+				</DropZone>
 				<br />
-				<button type="submit" onClick={this.createFile.bind(this)}>Create File</button>
+      	<input onChange={this.updateFileInfo.bind(this, 'fileTitle')} placeholder="Title" type="text" /><br />
+      	<input onChange={this.updateFileInfo.bind(this, 'fileDescription')} placeholder="File Description" type="text" />
+				<br />
+				<button type="submit" onClick={this.createFile.bind(this)}>Upload</button>
       </div>
     )
   }

@@ -22,16 +22,80 @@ class Home extends Component {
 
 				<div id="main">
 					<div className="post">
-						<Link to="/profile/">Profile</Link><br />
+						<section id="intro">
+							<header>
+								<h2>shared files</h2>
+							</header>
+						</section>
+						<Link to="/profile/">Robs Profile</Link><br />
 						<Link to="/profile/"><strong>FFs Profile</strong></Link>
-
-						<div style={{paddingTop:20}}>
-							<Files />
-						</div>
-
 					</div>
 				</div>
 
+				<section id="sidebar">
+					<section id="intro">
+						<header>
+							<h3>Fireshare: Home</h3>
+						</header>
+					</section>
+					<section>
+						<ul className="posts">
+							<li>
+								<article>
+									<header>
+										<h3><Link to={'/'}>File 1</Link></h3>
+									</header>
+									<Link to={'/'} className="image"><img src="/images/pic01.jpg" alt="" /></Link>
+								</article>
+							</li>
+							<li>
+								<article>
+									<header>
+										<h3><Link to={'/'}>File 2</Link></h3>
+									</header>
+									<Link to={'/'} className="image"><img src="/images/pic02.jpg" alt="" /></Link>
+								</article>
+							</li>
+							<li>
+								<article>
+									<header>
+										<h3><Link to={'/'}>File 3</Link></h3>
+									</header>
+									<Link to={'/'} className="image"><img src="/images/pic03.jpg" alt="" /></Link>
+								</article>
+							</li>
+							<li>
+								<article>
+									<header>
+										<h3><Link to={'/'}>File 4</Link></h3>
+									</header>
+									<Link to={'/'} className="image"><img src="/images/pic04.jpg" alt="" /></Link>
+								</article>
+							</li>
+							<li>
+								<article>
+									<header>
+										<h3><Link to={'/'}>File n-1</Link></h3>
+									</header>
+									<Link to={'/'} className="image"><img src="/images/pic05.jpg" alt="" /></Link>
+								</article>
+							</li>
+							<li>
+								<article>
+									<header>
+										<h3><Link to={'/'}>File n</Link></h3>
+									</header>
+									<Link to={'/'} className="image"><img src="/images/pic06.jpg" alt="" /></Link>
+								</article>
+							</li>
+						</ul>
+					</section>
+
+					<div style={{paddingTop:20}}>
+						<Files />
+					</div>
+
+				</section>
 			</div>
     )
   }
