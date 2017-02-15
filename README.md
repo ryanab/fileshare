@@ -15,7 +15,7 @@ The project is a functioning single page application that leverages a [Firebase]
 
 Get **Fireshare**:
 
-Note: You will need [Node.js](https://nodejs.org/en/download/), [MongoDB](https://www.mongodb.com/), [Nodemon](https://nodemon.io/) (Nodemon is optional), and a [cloudinary account](http://cloudinary.com/).
+Note: You will need [Node.js](https://nodejs.org/en/download/), [MongoDB](https://www.mongodb.com/), and [Nodemon](https://nodemon.io/) (Nodemon is optional).
 
 1. Clone this repository to your machine locally:
 ```
@@ -27,16 +27,25 @@ $ cd ~/your/path/to/fileshare
 $ touch .env
 ```
 
+- Set up your secrets:
+
 ```
 MONGO_URL=mongodb://localhost/fileshare
 TOKEN_SECRET=yourFirstFancySecretHere!
 SESSION_SECRET=onlyYouKnowYourSecrets!
 
 ```
+
+Note: You will not be able to run your local server without your ```.env``` file!
+
+- Next make a config file for the cloudinary integration:
+
 ```
 $ cd ~/your/path/to/fileshare/src
 $ touch config.js
 ```
+
+- Put your key information in the config.js file:
 
 ```
 export default {
@@ -48,34 +57,47 @@ export default {
 
 ```
 
+<<<<<<< HEAD
 Note: You will not be able to run your server without the ```.env``` and ```/src/config.js``` files.
 
+=======
+>>>>>>> readme
 3. Install node modules:
+
 ```
+$ cd ~/your/path/to/fileshare
 $ npm install
 ```
+
 4. Run webpack:
+
 ```
 $ webpack -w
 ```
+
 5. In a separate tab in the terminal, run your local Mongo database:
+
 ```
 $ cd ~/your/path/to/fileshare
 $ mongod
 ```
-In a separate tab in the terminal, run your node server with Nodemon (or without):
+
+In *another* separate tab in the terminal, run your node server with Nodemon (or without):
 - Using Nodemon:
+
 ```
 $ cd ~/your/path/to/fileshare
 $ nodemon
 ```
+
 - Without Nodemon:
 ```
+
 $ cd ~/your/path/to/fileshare
 $ npm start
 ```
-6. Open up your browser and navigate to [http://localhost:3000](http://localhost:3000) - enjoy!
 
+6. Open up your browser and navigate to [http://localhost:3000](http://localhost:3000) - enjoy!
 
 Team:
 ---
