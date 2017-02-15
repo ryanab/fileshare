@@ -48,16 +48,9 @@ export default {
 
 ```
 
-
-Note: You will not be able to run your server without the ```.env``` file.
+Note: You will not be able to run your server without the ```.env``` and ```/src/config.js``` files.
 
 ```
-$cd ~/
-```
-  CLOUDINARY_API_KEY: '917873567416946',
-  CLOUDINARY_UPLOAD_PRESET: 'uqj0leyv',
-  CLOUDINARY_API_SECRET: '4fkKUAKpWOseM8w2Yoh7TYNLO8k',
-  CLOUDINARY_CLOUD_NAME: 'nomadreactjs'
 3. Install node modules:
 ```
 $ npm install
@@ -82,7 +75,7 @@ $ nodemon
 $ cd ~/your/path/to/fileshare
 $ npm start
 ```
-5. Open up your browser and navigate to [http://localhost:3000](http://localhost:3000) - enjoy!
+6. Open up your browser and navigate to [http://localhost:3000](http://localhost:3000) - enjoy!
 
 
 Team:
