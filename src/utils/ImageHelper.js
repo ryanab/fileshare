@@ -1,4 +1,5 @@
 import sha1 from 'sha1'
+import config from '../config'
 
 export default {
 
@@ -8,29 +9,23 @@ export default {
 	},
 
   getAuthParams: () => {
-    const cloudName = 'nomadreactjs'
-    const url = 'https://api.cloudinary.com/v1_1/'+cloudName+'/image/upload'
-
-    const uploadPreset = 'uqj0leyv'
-
+    const url = 'https://api.cloudinary.com/v1_1/'+config.CLOUDINARY_CLOUD_NAME+'/image/upload'
     let timestamp = Date.now() / 1000
-
-    const paramsStr = 'timestamp='+timestamp+'&upload_preset='+uploadPreset+'4fkKUAKpWOseM8w2Yoh7TYNLO8k'
+    const paramsStr = 'timestamp=' + timestamp + '&upload_preset=' + config.CLOUDINARY_UPLOAD_PRESET + config.CLOUDINARY_API_SECRET
                                                                              
     const signature = sha1(paramsStr)
-
+    console.log(config.CLOUDINARY_API_KEY)
     const params = {
-      'api_key': '917873567416946',
+      'api_key': config.CLOUDINARY_API_KEY,
       'timestamp': timestamp,
-      'upload_preset': uploadPreset,
+      'upload_preset': config.CLOUDINARY_UPLOAD_PRESET,
       'signature': signature,
     }
-
     const cloudinaryInfo = {
       params,
       url
     }
-
     return cloudinaryInfo
   }
+  
 }

@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import DropZone from 'react-dropzone'
 import sha1 from 'sha1'
-import { APIManager } from '../../utils'
+import { APIManager, ImageHelper } from '../../utils'
 
 class CreateFile extends Component{
 
@@ -20,20 +20,9 @@ class CreateFile extends Component{
 				return
 			}
 		const selectedFile = files[0]
-		const cloudName= 'nomadreactjs'
-		const url = 'https://api.cloudinary.com/v1_1/'+cloudName+'/auto/upload'
-		const timestamp = Date.now()/1000
-		const uploadPreset='uqj0leyv'
-		const paramsStr = 'timestamp='+timestamp+'&upload_preset='+uploadPreset+'4fkKUAKpWOseM8w2Yoh7TYNLO8k'
-		const signature = sha1(paramsStr)
-		const params = {
-			'api_key': '917873567416946',
-			'timestamp': timestamp,
-			'upload_preset': uploadPreset,
-			'signature': signature
-		}
+		const cloudinaryInfo = ImageHelper.getAuthParams()
 
-		APIManager.uploadFile(url, selectedFile, params)
+		APIManager.uploadFile(cloudinaryInfo.url, selectedFile, cloudinaryInfo.params)
 		.then((result) => {
 			this.props.updateFileInfo('fileUrl', result['secure_url'])
 			this.props.updateFileInfo('fileExtension', result['format'])
