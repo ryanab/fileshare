@@ -22,84 +22,33 @@ class Home extends Component {
 
 				<div id="main">
 					<div className="post">
-						<section id="intro">
-							<header>
-								<h2>shared files</h2>
-							</header>
-						</section>
-						<Link to="/profile/">Robs Profile</Link><br />
-						<Link to="/profile/"><strong>FFs Profile</strong></Link><br />
-						<Link to="/profile/"><strong>Forrest Pans Profile</strong></Link>
+								<ul className="mini-posts">
+									
+										<article className="mini-posts">
+											<header>
+												<h3><a href="#">Lorem ipsum fermentum ut nisl vitae</a></h3>
+												<time className="published" dateTime="2015-10-20">October 20, 2015</time>
+											</header>
+											<a href="#" className="image"><img style={{float: 'left'}} width="500" src="/images/pic04.jpg" alt="" /></a>
+										</article> 
+									    <br />
+									
+										<article className="mini-posts">
+											<header>
+												<h3><a href="#">Convallis maximus nisl mattis nunc id lorem</a></h3>
+												<time className="published" dateTime="2015-10-15">October 15, 2015</time>
+											</header>
+											<a href="#" className="image"><img style={{float: 'left'}} width="500" src="/images/pic05.jpg" alt="" /></a>
+										</article>
+									
+								</ul>	
 					</div>
 				</div>
 
-				<section id="sidebar">
-					<section id="intro">
-						<header>
-							<h3>Fireshare: Home</h3>
-						</header>
-					</section>
-					<section>
-						<ul className="posts">
-							<li>
-								<article>
-									<header>
-										<h3><Link to={'/'}>File 1</Link></h3>
-									</header>
-									<Link to={'/'} className="image"><img src="/images/pic01.jpg" alt="" /></Link>
-								</article>
-							</li>
-							<li>
-								<article>
-									<header>
-										<h3><Link to={'/'}>File 2</Link></h3>
-									</header>
-									<Link to={'/'} className="image"><img src="/images/pic02.jpg" alt="" /></Link>
-								</article>
-							</li>
-							<li>
-								<article>
-									<header>
-										<h3><Link to={'/'}>File 3</Link></h3>
-									</header>
-									<Link to={'/'} className="image"><img src="/images/pic03.jpg" alt="" /></Link>
-								</article>
-							</li>
-							<li>
-								<article>
-									<header>
-										<h3><Link to={'/'}>File 4</Link></h3>
-									</header>
-									<Link to={'/'} className="image"><img src="/images/pic04.jpg" alt="" /></Link>
-								</article>
-							</li>
-							<li>
-								<article>
-									<header>
-										<h3><Link to={'/'}>File n-1</Link></h3>
-									</header>
-									<Link to={'/'} className="image"><img src="/images/pic05.jpg" alt="" /></Link>
-								</article>
-							</li>
-							<li>
-								<article>
-									<header>
-										<h3><Link to={'/'}>File n</Link></h3>
-									</header>
-									<Link to={'/'} className="image"><img src="/images/pic06.jpg" alt="" /></Link>
-								</article>
-							</li>
-						</ul>
-					</section>
-
-					<div style={{paddingTop:20}}>
-						<Files />
-					</div>
-
-				</section>
+				
 			</div>
     )
   }
 }
-
+//<img style="float: left; margin: 0px 15px 15px 0px;" src="/support/image/your-image.png" width="100" />
 export default Home
