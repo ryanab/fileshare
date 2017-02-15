@@ -25,20 +25,20 @@ class Home extends Component {
 								<ul className="mini-posts">
 									
 										<article className="mini-posts">
-											<header>
+											<header style={{float: 'right'}}>
 												<h3><a href="#">Lorem ipsum fermentum ut nisl vitae</a></h3>
 												<time className="published" dateTime="2015-10-20">October 20, 2015</time>
 											</header>
-											<a href="#" className="image"><img style={{float: 'left'}} width="500" src="/images/pic04.jpg" alt="" /></a>
+											<a href="#" className="image"><img style={{float: 'left'}} width="600" src="/images/pic04.jpg" alt="" /></a>
 										</article> 
 									    <br />
 									
 										<article className="mini-posts">
-											<header>
+											<header style={{float: 'right'}}>
 												<h3><a href="#">Convallis maximus nisl mattis nunc id lorem</a></h3>
 												<time className="published" dateTime="2015-10-15">October 15, 2015</time>
 											</header>
-											<a href="#" className="image"><img style={{float: 'left'}} width="500" src="/images/pic05.jpg" alt="" /></a>
+											<a href="#" className="image"><img style={{float: 'left'}} width="600" src="/images/pic05.jpg" alt="" /></a>
 										</article>
 									
 								</ul>	
