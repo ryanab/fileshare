@@ -29,6 +29,7 @@ class Files extends Component{
     event.preventDefault()
 
 		const file = this.state.file
+		// console.log("FILE: " + JSON.stringify(file.fileExtension))
 		const fileUrl = file['fileUrl']
 		const image = ['jpg','png','gif','bmp','jpeg']
 		const video = ['webm', 'mp4','ogv','mov']
@@ -50,14 +51,14 @@ class Files extends Component{
 			}else{
 				updated['fileCategory'] = 'misc'
 			}
-		  updated[key] = value 
+		  updated[key] = value
 		this.setState({
 		  file: updated
 		})
   }
 
   render(){
-		const fileTypeIcons = ["fa fa-file-picture-o fa-3x","fa-file-movie-o fa-3x","fa fa-file-pdf-o fa-3x","fa fa-file-audio-o fa-3x","fa fa-question-circle-o fa-3x"]
+		const fileTypeIcons = ["fa fa-file-picture-o fa-3x","fa fa-file-movie-o fa-3x","fa fa-file-pdf-o fa-3x","fa fa-file-audio-o fa-3x","fa fa-question-circle-o fa-3x"]
 		const fileCategories = ['image','video','pdf','audio','misc']
 
     return(

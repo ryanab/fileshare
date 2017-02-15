@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Account, Files, Profile, FileTypes } from '../containers'
+import { Account, Files, Profile } from '../containers'
 import { ProfileLayout} from '../layout'
 
 class Home extends Component{
@@ -7,7 +7,6 @@ class Home extends Component{
     return(
         <div>
           <h1>Home Layout</h1>
-				
           <Files />
          <Account />
         </div>

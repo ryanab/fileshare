@@ -5,5 +5,5 @@ import Files from './Files'
 export{
   Account,
   Profile,
-  Files
+  Files,
 }
