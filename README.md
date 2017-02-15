@@ -50,7 +50,6 @@ export default {
 
 Note: You will not be able to run your server without the ```.env``` and ```/src/config.js``` files.
 
-```
 3. Install node modules:
 ```
 $ npm install
