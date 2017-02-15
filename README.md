@@ -31,12 +31,33 @@ $ touch .env
 MONGO_URL=mongodb://localhost/fileshare
 TOKEN_SECRET=yourFirstFancySecretHere!
 SESSION_SECRET=onlyYouKnowYourSecrets!
-CLOUDINARY_EMAIL=personWhoClonesThisRepo@emailaccount.com
-CLOUDINARY_PASSWORD=beSureYouRememberToMakeACloudinaryAccount
+
 ```
+```
+$ cd ~/your/path/to/fileshare/src
+$ touch config.js
+```
+
+```
+export default {
+  CLOUDINARY_API_KEY: 'yourKey',
+  CLOUDINARY_API_SECRET: 'yourSecret',
+  CLOUDINARY_UPLOAD_PRESET: 'yourUploadPreset',
+  CLOUDINARY_CLOUD_NAME: 'yourCloudName'
+}
+
+```
+
 
 Note: You will not be able to run your server without the ```.env``` file.
 
+```
+$cd ~/
+```
+  CLOUDINARY_API_KEY: '917873567416946',
+  CLOUDINARY_UPLOAD_PRESET: 'uqj0leyv',
+  CLOUDINARY_API_SECRET: '4fkKUAKpWOseM8w2Yoh7TYNLO8k',
+  CLOUDINARY_CLOUD_NAME: 'nomadreactjs'
 3. Install node modules:
 ```
 $ npm install
