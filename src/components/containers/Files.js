@@ -39,6 +39,7 @@ class Files extends Component{
 			extension = fileUrl.substring(fileUrl.length-3)
 		}
 
+
 	 	let updated = Object.assign({}, this.state.file)
 			if(image.indexOf(extension) > -1){
 				updated['fileCategory'] = 'image'
@@ -51,6 +52,7 @@ class Files extends Component{
 			}else{
 				updated['fileCategory'] = 'misc'
 			}
+			updated['fileExtension'] = extension
 		  updated[key] = value
 		this.setState({
 		  file: updated
@@ -60,7 +62,7 @@ class Files extends Component{
   render(){
 		const fileTypeIcons = ["fa fa-file-picture-o fa-3x","fa fa-file-movie-o fa-3x","fa fa-file-pdf-o fa-3x","fa fa-file-audio-o fa-3x","fa fa-question-circle-o fa-3x"]
 		const fileCategories = ['image','video','pdf','audio','misc']
-
+		console.log("FILES: " + JSON.stringify(this.props.files))
     return(
       <div>
 				<ol>
@@ -77,7 +79,7 @@ class Files extends Component{
 													(file.profile != null) ?  <a href='#'>{file.profile['firstName']}</a>
 													:
 													'anonymous'
-												}
+												}&nbsp; (File Type: {file.fileExtension} )
 									 		<br /><br />
 									 		{(file.fileCategory=='image') ? <span><img src={file.fileUrl} /></span> : null}
 									 		<br /><br />
