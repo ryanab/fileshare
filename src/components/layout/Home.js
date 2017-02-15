@@ -29,7 +29,7 @@ class Home extends Component{
 					  <Files />
 						<section id="intro">
 							<header>
-								<h2>shared files</h2>
+								<h2 style={{textAlign:'center'}}>shared files</h2>
 							</header>
 						</section>
 					</div>
