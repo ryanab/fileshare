@@ -17,11 +17,11 @@ Get **Fireshare**:
 
 Note: You will need [Node.js](https://nodejs.org/en/download/), [MongoDB](https://www.mongodb.com/), and [Nodemon](https://nodemon.io/) (Nodemon is optional).
 
-1. Clone this repository to your machine locally:
+- Clone this repository to your machine locally:
 ```
 $ git clone https://github.com/ryanab/fileshare.git
 ```
-2. Create your private environmental variables file and drop your secrets in:
+- Create your private environmental variables file and drop your secrets in:
 ```
 $ cd ~/your/path/to/fileshare
 $ touch .env
@@ -57,25 +57,20 @@ export default {
 
 ```
 
-<<<<<<< HEAD
-Note: You will not be able to run your server without the ```.env``` and ```/src/config.js``` files.
-
-=======
->>>>>>> readme
-3. Install node modules:
+- Install node modules:
 
 ```
 $ cd ~/your/path/to/fileshare
 $ npm install
 ```
 
-4. Run webpack:
+- Run webpack:
 
 ```
 $ webpack -w
 ```
 
-5. In a separate tab in the terminal, run your local Mongo database:
+- In a separate tab in the terminal, run your local Mongo database:
 
 ```
 $ cd ~/your/path/to/fileshare
@@ -97,7 +92,7 @@ $ cd ~/your/path/to/fileshare
 $ npm start
 ```
 
-6. Open up your browser and navigate to [http://localhost:3000](http://localhost:3000) - enjoy!
+- Open up your browser and navigate to [http://localhost:3000](http://localhost:3000) - enjoy!
 
 Team:
 ---
