@@ -20,6 +20,7 @@ class Files extends Component{
 
   createFile(){
     event.preventDefault()
+
     let file = this.state.file
     file['profile'] = this.props.user
 		this.props.createFile(this.state.file)
@@ -27,6 +28,11 @@ class Files extends Component{
 
   updateFileInfo(key, value){
     event.preventDefault()
+		console.log("USER: " + JSON.stringify(this.props.user))
+		if(this.props.user == null){
+			alert('YOU MUST BE LOGGED IN TO UPLOAD FILE')
+			return
+		}
 
 		const file = this.state.file
 		// console.log("FILE: " + JSON.stringify(file.fileExtension))

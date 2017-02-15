@@ -8,7 +8,7 @@ class Home extends Component{
         <div>
           <h1>Home Layout</h1>
           <Files />
-         <Account />
+         	<Account />
         </div>
     )
   }
