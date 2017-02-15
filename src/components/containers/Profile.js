@@ -12,7 +12,6 @@ class Profile extends Component{
 		const fileCategories = ['image','video','pdf','audio','misc']
 		let audioLink = null
 		let newAudioImageLink = null
-
 		if(this.props.files!=null){
 			files =this.props.files.uploader[this.props.params.profileId]
 			firstName = files[0].profile.firstName

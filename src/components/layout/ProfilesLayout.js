@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
-import {  Profile } from '../containers'
+import { Profiles } from '../containers'
 
-class ProfileLayout extends Component {
+class ProfilesLayout extends Component {
 	render(){
 		return(
 			<div id="wrapper">
@@ -18,10 +18,10 @@ class ProfileLayout extends Component {
 					</nav>
 				</header>
 
-				<Profile {...this.props} />
+				<Profiles {...this.props} />
 			</div>
 		)
 	}
 }
 
-export default ProfileLayout
+export default ProfilesLayout
