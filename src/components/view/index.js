@@ -4,6 +4,5 @@ import CreateFile from './CreateFile'
 
 export{
   Authenticate,
-  CreateFile,
-
+  CreateFile
 }

@@ -1,10 +1,13 @@
 import React, { Component } from 'react'
 import actions from '../../actions'
 import { connect } from 'react-redux'
+import Files from './Files'
+import { Link } from 'react-router'
 
 class Profile extends Component{
 
   render(){
+
 		let files = null
 		let content = null
 		let firstName = null
@@ -12,10 +15,12 @@ class Profile extends Component{
 		const fileCategories = ['image','video','pdf','audio','misc']
 		let audioLink = null
 		let newAudioImageLink = null
+
 		if(this.props.files!=null){
 			files =this.props.files.uploader[this.props.params.profileId]
 			firstName = files[0].profile.firstName
 			content = files.map((file,i)=>{
+
 				if(file.fileCategory == 'audio'){
 					audioLink = file.fileUrl
 					let audioLinkSplit = audioLink.split('upload/')
@@ -23,8 +28,44 @@ class Profile extends Component{
 					newAudioImageLink = newAudioLink.slice(0,newAudioLink.length-3)+'png'
 					// console.log("MUSIC FILE: " + JSON.stringify(newAudioImageLink))
 				}
+			}
+		}
 
-				return(
+		const profile = this.props.profiles[this.props.params.id]
+		const file = this.props.file[this.props.params.id]
+
+		if (this.props.file == null)
+		return
+
+		console.log('FILE: '+JSON.stringify(this.props.file))
+
+    return(
+			<div id="wrapper">
+				<header id="header">
+					<h1><Link to={'/'}>Fileshare</Link></h1>
+					<nav className="links">
+						<ul>
+							<li><Link to={'/'}>Image</Link></li>
+							<li><Link to={'/'}>Video</Link></li>
+							<li><Link to={'/'}>PDF</Link></li>
+							<li><Link to={'/'}>Misc</Link></li>
+							<li style={{paddingLeft:800}}><Link to={'/account'}>Login or Register</Link></li>
+						</ul>
+					</nav>
+				</header>
+
+				<div style={{marginLeft:20, marginRight:20, marginTop:0}} className="post">
+					<h2>{profile.firstName}s files</h2><br />
+					<h3>{profile.email}</h3>
+				</div>
+
+				<div className="post">
+					<h1>Profile Container<span style={{fontSize:'.6em'}}></span></h1>
+					<h3>Files Uploaded by <span style={{color:'blue'}}>{firstName.toUpperCase()}</span></h3><br />
+					<ol>
+						{content}
+					</ol>
+
 					<div key={i}>
 						<li key={i}>
 							<i className={fileTypeIcons[fileCategories.indexOf(file.fileCategory)]} style={{paddingRight:10}}></i>
@@ -43,9 +84,9 @@ class Profile extends Component{
 									(file.fileCategory=='video') ?
 										<span>
 											<video width="300" height="200" poster={file.fileUrl.substring(0,file.fileUrl.length-3)+"jpg"} preload="none" controls>
-											  <source src={file.fileUrl.substring(0,file.fileUrl.length-3) +"webm"} type="video/webm" />
-											  <source src={file.fileUrl.substring(0,file.fileUrl.length-3) +"mp4"} type = "video/mp4"/>
-											 	<source src={file.fileUrl.substring(0,file.fileUrl.length-3) +"ogg"}  type = "video/ogg"/>
+												<source src={file.fileUrl.substring(0,file.fileUrl.length-3) +"webm"} type="video/webm" />
+												<source src={file.fileUrl.substring(0,file.fileUrl.length-3) +"mp4"} type = "video/mp4"/>
+												<source src={file.fileUrl.substring(0,file.fileUrl.length-3) +"ogg"}  type = "video/ogg"/>
 											</video>
 										</span>
 									: null
@@ -72,20 +113,38 @@ class Profile extends Component{
 										: null
 								}
 								<br /><br />
-							</li><br />
-						</div>
-					)
-				})
-			}
+						</li><br />
+					</div>
+				</div>
 
-    return(
-      <div>
-      	<h1>Profile Container<span style={{fontSize:'.6em'}}></span></h1>
-				<h3>Files Uploaded by <span style={{color:'blue'}}>{firstName.toUpperCase()}</span></h3><br />
-				<ol>
-					{content}
-				</ol>
-    	</div>
+				<section id="sidebar">
+					<section id="intro">
+						<header>
+							<h3>fileshare sidebar</h3>
+						</header>
+					</section>
+					<section>
+						<ul className="posts">
+							<li>
+								<article>
+									<header>
+										{file.fileTitle}, {file.fileDescription}
+									</header>
+									<Link to={'/'} className="image"><img src="/images/pic01.jpg" alt="" /></Link>
+								</article>
+							</li>
+							<li>
+								<article>
+									<header>
+										<h3><Link to={'/'}>File 2</Link></h3>
+									</header>
+									<Link to={'/'} className="image"><img src="/images/pic02.jpg" alt="" /></Link>
+								</article>
+							</li>
+						</ul>
+					</section>
+				</section>
+      </div>
     )
   }
 }

@@ -10,7 +10,7 @@ class Files extends Component{
     super()
     this.state = {
       file:{
-
+        fileCategory: 'misc' //default for now until we write function to determine fileType
       }
     }
   }
@@ -36,6 +36,7 @@ class Files extends Component{
   updateFileInfo(key, value){
     event.preventDefault()
 		// console.log("USER: " + JSON.stringify(this.props.user))
+
 		if(this.props.user == null){
 			alert('YOU MUST BE LOGGED IN TO UPLOAD FILE')
 			return
@@ -88,7 +89,7 @@ class Files extends Component{
 					newAudioImageLink = newAudioLink.slice(0,newAudioLink.length-3)+'png'
 					// console.log("MUSIC FILE: " + JSON.stringify(newAudioImageLink))
 				}
-				
+
 				return(
 					<li key={i}>
 						<i className={fileTypeIcons[fileCategories.indexOf(file.fileCategory)]} style={{paddingRight:10}}></i>
