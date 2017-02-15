@@ -1,7 +1,7 @@
 import constants from '../constants'
 
 var initialState = {
-
+	map:{},
 	completeFileList:[]
 }
 
@@ -9,7 +9,7 @@ export default(state = initialState, action) => {
 
   let updated = Object.assign({}, state)
   switch(action.type){
-		
+
     case constants.FILES_RECEIVED:
 		console.log("ACTION.Params: " + JSON.stringify(action.params))
 		let key = Object.keys(action.params)
@@ -27,8 +27,11 @@ export default(state = initialState, action) => {
 			let existingArray = Object.assign([], state['completeFileList'])
 			existingArray.unshift(action.payload)
 			updated['completeFileList'] = existingArray
-				// console.log('FileREDUCER FILE_CREATED: ' + JSON.stringify(updated[completeFileList]))
-	   return updated
+
+			console.log('ACTION PAYLOAD: ' + JSON.stringify(action.payload))
+
+
+	   	return updated
     default:
       return updated
   }

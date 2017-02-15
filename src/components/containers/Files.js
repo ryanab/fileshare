@@ -50,7 +50,7 @@ class Files extends Component{
 			}else{
 				updated['fileCategory'] = 'misc'
 			}
-		  // updated[key] = value ????? Ryan what is this for?
+		  updated[key] = value 
 		this.setState({
 		  file: updated
 		})
@@ -73,7 +73,7 @@ class Files extends Component{
 											<i className={fileTypeIcons[fileCategories.indexOf(file.fileCategory)]} style={{paddingRight:10}}></i>
 										 	{file.fileTitle} created by&nbsp;
 												{
-													(file.profile['firstName'] != '') ?  <a href='#'>{file.profile['firstName']}</a>
+													(file.profile != null) ?  <a href='#'>{file.profile['firstName']}</a>
 													:
 													'anonymous'
 												}
