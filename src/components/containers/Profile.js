@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import actions from '../../actions'
+import Files from './Files'
 
 
 class Profile extends Component{
@@ -36,7 +37,8 @@ class Profile extends Component{
 
 const stateToProps = (state) => {
 	return {
-		profiles: state.profile
+		profiles: state.profile,
+    files: state.files
 	}
 }
 
