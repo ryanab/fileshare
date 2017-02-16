@@ -66,13 +66,20 @@ class CurrentUserUploads extends Component{
 									</span>
 									: null
 							}
+							{
+								(file.fileCategory=='misc') ?
+									<span><
+										img width="150" height="150" src="/images/misc-compressed.png" />
+									</span>
+									: null
+							}
 								<br /><br />
-							</li>
-							<br />
-						</div>
-					)
-				})
-			}
+						</li>
+						<br />
+					</div>
+				)
+			})
+		}
 
     return(
       <div>

@@ -122,6 +122,14 @@ class Files extends Component{
 								</span>
 								: null
 						}
+						{
+							(file.fileCategory=='misc') ?
+								<span><
+									img width="150" height="150" src="/images/misc-compressed.png" />
+								</span>
+								: null
+						}
+
 						<br /><br />
 					</li>
 					)
@@ -131,7 +139,7 @@ class Files extends Component{
 
 		return(
       <div>
-				<h1>Files Container</h1>
+				<h1>Files Container</h1><br />
 				<ol>
 				{content}
 				</ol>

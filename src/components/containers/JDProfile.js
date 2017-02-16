@@ -64,6 +64,13 @@ class JDProfile extends Component{
 										</span>
 										: null
 								}
+								{
+									(file.fileCategory=='misc') ?
+										<span><
+											img width="150" height="150" src="/images/misc-compressed.png" />
+										</span>
+										: null
+								}
 								<br /><br />
 							</li><br />
 						</div>
@@ -73,8 +80,8 @@ class JDProfile extends Component{
 
     return(
       <div>
-      	<h1>Profile Container (JD version)</h1>
-				<h3>Files Created by {firstName}</h3>
+      	<h1>Profile Container 2 <span style={{fontSize:'.6em'}}> (JD version)</span></h1>
+				<h3>Files Uploaded by <span style={{color:'blue'}}>{firstName.toUpperCase()}</span></h3><br />
 				<ol>
 					{content}
 				</ol>
