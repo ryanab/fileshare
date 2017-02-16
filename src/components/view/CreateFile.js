@@ -16,6 +16,7 @@ class CreateFile extends Component{
 	}
 
   fileSelected(files){
+
 			if(files.length == 0){
 				alert('File is too large')
 				return
@@ -25,13 +26,14 @@ class CreateFile extends Component{
 
 		APIManager.uploadFile(cloudinaryInfo.url, selectedFile, cloudinaryInfo.params)
 		.then((result) => {
+			"IN PROMISE"
 			this.props.updateFileInfo('fileUrl', result['secure_url'])
 			this.props.updateFileInfo('fileExtension', result['format'])
 			return null
 		})
 
 		.catch((err) => {
-			alert(err.message)
+			alert("HELLO" + err.message)
 		})
 	}
 

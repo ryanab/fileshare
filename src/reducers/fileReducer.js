@@ -12,13 +12,13 @@ export default(state = initialState, action) => {
   switch(action.type){
 
     case constants.FILES_RECEIVED:
-			console.log("UPLOADER ARRAY: " + JSON.stringify(updated['uploader']))
-			console.log("ACTION PARAMS: " + JSON.stringify(action.params))
+			// console.log("UPLOADER ARRAY: " + JSON.stringify(updated['uploader']))
+			// console.log("ACTION PARAMS: " + JSON.stringify(action.params))
 			let key = Object.keys(action.params)
 			//store files by id
 			action.payload.forEach((file)=>{
 				updated[file.profile.id] = file
-				console.log("UPDATED BY ID: " + JSON.stringify(updated))
+				// console.log("UPDATED BY ID: " + JSON.stringify(updated))
 			})
 			//put every file into an array to render in Files Container
 			updated['completeFileList'] = action.payload

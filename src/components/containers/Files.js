@@ -28,7 +28,7 @@ class Files extends Component{
 
   updateFileInfo(key, value){
     event.preventDefault()
-		console.log("USER: " + JSON.stringify(this.props.user))
+		// console.log("USER: " + JSON.stringify(this.props.user))
 		if(this.props.user == null){
 			alert('YOU MUST BE LOGGED IN TO UPLOAD FILE')
 			return
@@ -68,7 +68,7 @@ class Files extends Component{
   render(){
 		const fileTypeIcons = ["fa fa-file-picture-o fa-3x","fa fa-file-movie-o fa-3x","fa fa-file-pdf-o fa-3x","fa fa-file-audio-o fa-3x","fa fa-question-circle-o fa-3x"]
 		const fileCategories = ['image','video','pdf','audio','misc']
-		console.log("FILES: " + JSON.stringify(this.props.files))
+		// console.log("FILES: " + JSON.stringify(this.props.files))
     return(
       <div>
 				<ol>
