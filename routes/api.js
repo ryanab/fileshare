@@ -57,6 +57,35 @@ router.get('/:resource/:id', function(req, res, next){
 	})
 })
 
+router.put('/:resource/:id', function(req, res, next){
+	var resource = req.params.resource
+	var controller = controllers[resource]
+
+  if(controller == null){
+  	res.json({
+  		confirmation: 'fail',
+  		message: 'Invalid Resource'
+  	})
+  	return
+  }
+
+	controller.update(req.body, false)
+	.then(function(result){
+		res.json({
+			confirmation: 'success',
+			result: result
+		})
+		return
+	})
+	.catch(function(err){
+		res.json({
+			confirmation: 'fail',
+			message: err
+		})
+		return
+	})
+})
+
 router.post('/:resource', function(req, res, next){
 	var resource = req.params.resource
 	var controller = controllers[resource]

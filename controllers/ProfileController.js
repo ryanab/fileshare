@@ -41,8 +41,9 @@ module.exports = {
     })   
   },
 
-  getByIdAndUpdate: function(id, params, isRaw){
+  update: function(id, params, isRaw){
     return new Promise(function(resolve, reject){
+      //still need to add password changing functionality
       Profile.findByIdAndUpdate(id, params, {new: true}, function(err, profile){
         if(err){
           reject(err)

@@ -37,11 +37,36 @@ const postRequest = (path, params, actionType)=>{
     })
 }
 
+const putRequest = (url, params, actionType) =>{
+  return(dispatch) => {
+    APIManager.put(url, params)
+    .then(response =>{
+      const payload = response.results || response.result || response.user
+      dispatch({
+        type: actionType,
+        payload: payload,
+        params: params
+      })
+      return response
+    })
+    .catch(err=>{
+      throw err
+    })
+  }
+}
+
+
 export default{
 
   register: (credentials) => {
-    return(dispatch) => {
+    return (dispatch) => {
       return dispatch(postRequest('account/register',credentials, constants.PROFILE_CREATED))
+    }
+  },
+
+  updateAccount: (params, id) => {
+    return (dispatch) => {
+      return dispatch(putRequest('/account/' + id, ))
     }
   },
 
