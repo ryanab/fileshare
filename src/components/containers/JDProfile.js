@@ -19,7 +19,7 @@ class JDProfile extends Component{
 				if(file.fileCategory == 'audio'){
 					audioLink = file.fileUrl
 					let audioLinkSplit = audioLink.split('upload/')
-					let newAudioLink = audioLinkSplit[0] + 'upload/h_150,w_200,fl_waveform,so_2,eo_4,co_blue,b_rgb:02b30a/'+audioLinkSplit[1]
+					let newAudioLink =`${audioLinkSplit[0]}upload/h_150,w_200,fl_waveform,so_2,eo_4,co_blue,b_rgb:02b30a/${audioLinkSplit[1]}`
 					newAudioImageLink = newAudioLink.slice(0,newAudioLink.length-3)+'png'
 					console.log("MUSIC FILE: " + JSON.stringify(newAudioImageLink))
 				}
