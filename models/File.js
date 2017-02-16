@@ -1,6 +1,7 @@
 var mongoose = require('mongoose')
 
 var FileSchema = new mongoose.Schema({
+
 	fileUrl: { type: String, default: '' },
 	fileTitle: { type: String, default: '' },
 	fileCategory: { type: String, default: '' }, // this will be determined in controller
@@ -8,6 +9,7 @@ var FileSchema = new mongoose.Schema({
 	fileExtension: { type: String, default: '' },
 	profile: { type: mongoose.Schema.Types.Mixed, default: {} },
 	timestamp: { type: Date, default: Date.now }
+
 })
 
 FileSchema.methods.summary = function () {
