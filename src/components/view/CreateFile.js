@@ -33,7 +33,7 @@ class CreateFile extends Component{
 		})
 
 		.catch((err) => {
-			alert("HELLO" + err.message)
+			alert("HELLO " + err.message)
 		})
 	}
 

@@ -9,10 +9,10 @@ export default {
 	},
 
   getAuthParams: () => {
-    const url = 'https://api.cloudinary.com/v1_1/'+config.CLOUDINARY_CLOUD_NAME+'/image/upload'
+    const url = 'https://api.cloudinary.com/v1_1/'+config.CLOUDINARY_CLOUD_NAME+'/auto/upload'
     let timestamp = Date.now() / 1000
     const paramsStr = 'timestamp=' + timestamp + '&upload_preset=' + config.CLOUDINARY_UPLOAD_PRESET + config.CLOUDINARY_API_SECRET
-                                                                             
+
     const signature = sha1(paramsStr)
     console.log(config.CLOUDINARY_API_KEY)
     const params = {
@@ -27,5 +27,5 @@ export default {
     }
     return cloudinaryInfo
   }
-  
+
 }

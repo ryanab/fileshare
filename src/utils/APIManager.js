@@ -49,7 +49,7 @@ export default {
 
 	uploadFile: (url, file, params) => {
 		return new Promise((resolve, reject) => {
-
+					console.log("APIMANAGER: " + JSON.stringify(params))
 	        let uploadRequest = superagent.post(url)
 	        uploadRequest.attach('file', file)
 	        if (params != null){
@@ -65,7 +65,7 @@ export default {
 	        	}
 						const uploaded = resp.body
 			      resolve(uploaded)
-						
+
 	        })
 		})
 	}
