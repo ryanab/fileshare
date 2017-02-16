@@ -6,22 +6,22 @@ var initialState = {
 }
 
 export default(state = initialState, action) => {
-  let updated = Object.assign({}, state)
+	let updated = Object.assign({}, state)
 	let uploader = Object.assign({},state.uploader)
 
   switch(action.type){
 
     case constants.FILES_RECEIVED:
-			// console.log("UPLOADER ARRAY: " + JSON.stringify(updated['uploader']))
-			// console.log("ACTION PARAMS: " + JSON.stringify(action.params))
-			let key = Object.keys(action.params)
-			//store files by id
+		//stores files by id in uploader object
 			action.payload.forEach((file)=>{
-				updated[file.profile.id] = file
-				// console.log("UPDATED BY ID: " + JSON.stringify(updated))
+				let uploadedArray = Object.assign([],uploader[file.profile.id])
+				uploadedArray.unshift(file)
+				uploader[file.profile.id] = uploadedArray
 			})
-			//put every file into an array to render in Files Container
+			updated['uploader'] = uploader
+			//stores all files in one large array
 			updated['completeFileList'] = action.payload
+			console.log('UPDATED: ' + JSON.stringify(updated))
       return updated
 
 	    case constants.FILE_CREATED:
