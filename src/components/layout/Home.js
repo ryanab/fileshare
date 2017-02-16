@@ -10,8 +10,8 @@ class Home extends Component{
       	<h1>Home Layout</h1>
         <Files />
         <Account />
-        
-        <Link to='/profiles'>Profile</Link>
+        <br />
+        <Link to='/profiles'>Profiles</Link>
         
       </div>
     )

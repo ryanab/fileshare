@@ -16,15 +16,22 @@ class Profile extends Component{
 
   render(){
   	 const profile = this.props.profiles[this.props.params.id]
-
+     const file = this.props.file[this.props.params.id]
+     if (this.props.file == null)
+      return
+     console.log('FILE: '+JSON.stringify(this.props.file))
     return (	
       <div>
 
       	<h2>{profile.firstName}'s files</h2><br />
       	<h3>{profile.email}</h3>
       	<div>
-      		<ol>
-      			<li>First File</li>
+      		<ol> 
+          {
+            (file == null) ? <p>This user has not uploaded any files.</p> : file.map((file, i) => {
+              return <li key={file.id}>{file.fileTitle}</li>
+            })
+          }
       			<li>Second File</li>
       			<li>Third File</li>
       			<li>Fourth File</li>
@@ -38,7 +45,7 @@ class Profile extends Component{
 const stateToProps = (state) => {
 	return {
 		profiles: state.profile,
-    files: state.files
+    file: state.files
 	}
 }
 
