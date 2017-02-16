@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { File, CreateFile} from '../view'
 import actions from '../../actions'
 import { connect } from 'react-redux'
+import { Link } from 'react-router'
 
 class Files extends Component{
 
@@ -15,8 +16,11 @@ class Files extends Component{
   }
 
   componentDidMount(){
-    this.props.fetchFiles({})
+    this.props.fetchFiles()
   }
+	componentDidUpdate(){
+
+	}
 
   createFile(){
     event.preventDefault()
@@ -28,7 +32,7 @@ class Files extends Component{
 
   updateFileInfo(key, value){
     event.preventDefault()
-		// console.log("USER: " + JSON.stringify(this.props.user))
+		console.log("USER: " + JSON.stringify(this.props.user))
 		if(this.props.user == null){
 			alert('YOU MUST BE LOGGED IN TO UPLOAD FILE')
 			return
@@ -68,34 +72,52 @@ class Files extends Component{
   render(){
 		const fileTypeIcons = ["fa fa-file-picture-o fa-3x","fa fa-file-movie-o fa-3x","fa fa-file-pdf-o fa-3x","fa fa-file-audio-o fa-3x","fa fa-question-circle-o fa-3x"]
 		const fileCategories = ['image','video','pdf','audio','misc']
-		// console.log("FILES: " + JSON.stringify(this.props.files))
-    return(
-      <div>
-				<ol>
-					{
-						(this.props.files == null ) ? 'No Files Rendered'
-						:
-						this.props.files.map((file,i)=>{
-							return(
-								<div key={i}>
-										<li>
-											<i className={fileTypeIcons[fileCategories.indexOf(file.fileCategory)]} style={{paddingRight:10}}></i>
-										 	{file.fileTitle} created by&nbsp;
-												{
-													(file.profile != null) ?  <a href='#'>{file.profile['firstName']}</a>
-													:
-													'anonymous'
-												}&nbsp; (File Type: {file.fileExtension} )
-									 		<br /><br />
-									 		{(file.fileCategory=='image') ? <span><img src={file.fileUrl} /></span> : null}
-									 		<br /><br />
-										</li>
-									</div>
-								)
-							})
+		let content = (this.props.files !=null) ?
+			this.props.files.completeFileList.map((file,i)=>{
+				return(
+					<li key={i}>
+						<i className={fileTypeIcons[fileCategories.indexOf(file.fileCategory)]} style={{paddingRight:10}}></i>
+						<a href={file.fileUrl}>{file.fileTitle}</a> created by&nbsp;
+						<Link to={'/profile/'+file.profile.id}>	{file.profile['firstName']}</Link>
+						&nbsp; (File Type: {file.fileExtension} )
+						<br /><br />
+						{
+							(file.fileCategory=='image') ?
+								<span><
+									img src={file.fileUrl} />
+								</span>
+								: null}
+						{
+							(file.fileCategory=='video') ?
+								<span>
+									<video width="300" height="200" poster={file.fileUrl.substring(0,file.fileUrl.length-3)+"jpg"} preload="none" controls>
+									  <source src={file.fileUrl.substring(0,file.fileUrl.length-3) +"webm"} type="video/webm" />
+									  <source src={file.fileUrl.substring(0,file.fileUrl.length-3) +"mp4"} type = "video/mp4"/>
+									 	<source src={file.fileUrl.substring(0,file.fileUrl.length-3) +"ogg"}  type = "video/ogg"/>
+									</video>
+								</span>
+								: null
 						}
-				</ol>
+						{
+							(file.fileCategory=='pdf') ?
+								<span><
+									img width="200" height="300" src={file.fileUrl.substring(0,file.fileUrl.length-3)+"jpg"} />
+								</span>
+								: null
+						}
+						<br /><br />
+					</li>
+					)
+				})
+				:
+				<div>'no files rendered'</div>
 
+		return(
+      <div>
+				<h1>Files Container</h1>
+				<ol>
+				{content}
+				</ol>
         <File  files={this.props.file}/>< br />
         <CreateFile createFile={this.createFile.bind(this)} updateFileInfo={this.updateFileInfo.bind(this)}/>
 			</div>
@@ -105,7 +127,7 @@ class Files extends Component{
 
 const stateToProps = (state) => {
   return {
-    files: state.files.completeFileList,
+    files: state.files,
     user: state.account.user
   }
 }
