@@ -19,7 +19,7 @@ export default(state = initialState, action) => {
 			let key = Object.keys(action.params)
 			//store files by id
 			action.payload.forEach((file)=>{
-				updated[file.profile.id] = file
+				updated[file.profile.id] = [file]
 				// console.log("UPDATED BY ID: " + JSON.stringify(updated))
 			})
 			//put every file into an array to render in Files Container

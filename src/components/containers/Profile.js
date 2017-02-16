@@ -27,11 +27,10 @@ class Profile extends Component{
       	<h3>{profile.email}</h3>
       	<div>
       		<ol> 
-          {
-            (file == null) ? <p>This user has not uploaded any files.</p> : file.map((file, i) => {
-              return <li key={file.id}>{file.fileTitle}</li>
-            })
-          }
+          
+            <li>{file.fileTitle}, {file.fileDescription}</li>
+           
+          
       			<li>Second File</li>
       			<li>Third File</li>
       			<li>Fourth File</li>
