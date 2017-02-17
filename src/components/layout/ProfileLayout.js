@@ -1,12 +1,12 @@
 import React, { Component } from 'react'
-import { Profile } from '../containers'
+import {  JDProfile } from '../containers'
 
 
 class ProfileLayout extends Component {
 	render(){
 		return(
 			<div>
-				<Profile {...this.props}/>
+				<JDProfile {...this.props}/>
 			</div>
 		)
 	}
