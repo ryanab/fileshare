@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import actions from '../../actions'
+import Files from './Files'
 
 
 class Profile extends Component{
@@ -15,15 +16,21 @@ class Profile extends Component{
 
   render(){
   	 const profile = this.props.profiles[this.props.params.id]
-
+     const file = this.props.file[this.props.params.id]
+     if (this.props.file == null)
+      return
+     console.log('FILE: '+JSON.stringify(this.props.file))
     return (	
       <div>
 
       	<h2>{profile.firstName}'s files</h2><br />
       	<h3>{profile.email}</h3>
       	<div>
-      		<ol>
-      			<li>First File</li>
+      		<ol> 
+          
+            <li>{file.fileTitle}, {file.fileDescription}</li>
+           
+          
       			<li>Second File</li>
       			<li>Third File</li>
       			<li>Fourth File</li>
@@ -36,7 +43,8 @@ class Profile extends Component{
 
 const stateToProps = (state) => {
 	return {
-		profiles: state.profile
+		profiles: state.profile,
+    file: state.files
 	}
 }
 

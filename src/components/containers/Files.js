@@ -144,7 +144,6 @@ class Files extends Component{
 				{content}
 				</ol>
         <File  files={this.props.file}/>< br />
-        <CreateFile createFile={this.createFile.bind(this)} updateFileInfo={this.updateFileInfo.bind(this)}/>
 			</div>
     )
   }

@@ -4,6 +4,7 @@ import Profile from './Profile'
 import Files from './Files'
 import CurrentUserUploads from './CurrentUserUploads'
 import JDProfile from './JDProfile'
+import UserCurrentUploads from './UserCurrentUploads'
 
 export{
   Account,
@@ -11,5 +12,6 @@ export{
   Profile,
   Files,
 	CurrentUserUploads,
-	JDProfile
+	JDProfile,
+  UserCurrentUploads
 }

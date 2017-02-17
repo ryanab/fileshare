@@ -1,8 +1,8 @@
 import constants from '../constants'
 
 var initialState = {
-	uploader:{},
-	completeFileList:[]
+    uploader:{},
+    completeFileList:[]
 }
 
 export default(state = initialState, action) => {
@@ -17,6 +17,7 @@ export default(state = initialState, action) => {
 				let uploadedArray = Object.assign([],uploader[file.profile.id])
 				uploadedArray.unshift(file)
 				uploader[file.profile.id] = uploadedArray
+
 			})
 			updated['uploader'] = uploader
 			//stores all files in one large array
@@ -24,25 +25,26 @@ export default(state = initialState, action) => {
 			console.log('UPDATED: ' + JSON.stringify(updated))
       return updated
 
-	    case constants.FILE_CREATED:
-				let existingArray = Object.assign([], state['completeFileList'])
-				existingArray.unshift(action.payload)
-				updated['completeFileList'] = existingArray
+    case constants.FILE_CREATED:
+			let existingArray = Object.assign([], state['completeFileList'])
+			existingArray.unshift(action.payload)
+			updated['completeFileList'] = existingArray
 
-				let uploaderArray = Object.assign([],uploader[action.payload.profile.id])
-				if(uploaderArray = null){
-					uploaderArray = []
-				}else{
-					uploaderArray = Object.assign([], uploaderArray)
-				}
+			let uploaderArray = Object.assign([],uploader[action.payload.profile.id])
+			if(uploaderArray = null){
+				uploaderArray = []
+			}else{
+				uploaderArray = Object.assign([], uploaderArray)
+			}
 
-				uploaderArray.unshift(action.payload)
-				uploader[action.payload.profile.id] = uploaderArray
-				updated['uploader'] = uploader
-				// console.log("UPDATED UPLOADER: " + JSON.stringify(updated['uploader']))
+			uploaderArray.unshift(action.payload)
+			uploader[action.payload.profile.id] = uploaderArray
+			updated['uploader'] = uploader
+			// console.log("UPDATED UPLOADER: " + JSON.stringify(updated['uploader']))
 
-		   	return updated
-	    default:
-	      return updated
-  	}
+	   	return updated
+    default:
+      return updated
+  }
 }
+

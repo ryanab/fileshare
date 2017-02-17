@@ -7,17 +7,28 @@ class Home extends Component{
 	render(){
 
     return(
-      <div>
-        <h1>Home Layout</h1>
-				<hr style={{border:'2px solid black'}}/>
-        <Files />
-				<hr style={{border:'2px solid black'}} />
-       	<Account />
-				<hr style={{border:'2px solid black'}} />
-				<CurrentUserUploads />
-				<hr style={{border:'2px solid black'}} />
-				<Link to='/profiles'>Profile</Link>
-      </div>
+    	<div>
+	      <div className="container">
+	      	<h1>Home Layout</h1>
+	      	<div className="row">
+	      		<div className="col-md-2" style={{border: '1px solid black', margin: '10px', padding: '10px'}}>
+	      			<Account />
+	      		</div>
+	      	</div>
+	      	<div className="row">
+	      		<div className="col-md-3" style={{border: '1px solid black', margin: '10px', padding: '10px'}}>
+	      			<CurrentUserUploads />
+	      		</div>
+	      	</div>
+	      </div>
+	      <div className="container">
+	      	<div className="row">
+	      		<div className="col-md-9" style={{border: '1px solid black', margin: '10px', padding: '10px'}}>
+	      			<Files />
+	      		</div>
+	      	</div>      	
+	      </div>
+	    </div>
     )
   }
 }
