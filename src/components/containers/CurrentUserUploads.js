@@ -7,15 +7,14 @@ class CurrentUserUploads extends Component{
 	constructor(){
     super()
     this.state = {
-      files:{
-
-      },
+			uploader:{},
+	    completeFileList:[],
 			user:null
 
     }
   }
 	componentDidMount(){
-	
+
 	}
   render(){
 
