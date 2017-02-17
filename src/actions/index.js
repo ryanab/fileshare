@@ -65,8 +65,9 @@ export default{
   },
 
   updateAccount: (params, id) => {
+    //should rename USER_LOGGED_IN to CURRENT_USER_RECEIVED
     return (dispatch) => {
-      return dispatch(putRequest('/account/' + id, ))
+      return dispatch(putRequest('/api/profile/' + id, params, constants.USER_LOGGED_IN))
     }
   },
 

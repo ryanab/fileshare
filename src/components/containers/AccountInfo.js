@@ -4,8 +4,24 @@ import actions from '../../actions'
 
 class AccountInfo extends Component{
 
-  componentDidMount(){
-    console.log(JSON.stringify(this.props.user))
+  constructor(){
+    super()
+    this.state = {
+      profile: {}
+    }
+  }
+
+  onInputChange(event){
+    event.preventDefault()
+    let updated = Object.assign({}, this.state.profile)
+    updated[event.target.id] = event.target.value
+    this.setState({
+      profile: updated
+    })
+  }
+
+  submitUpdates(){
+    this.props.updateAccount(this.state.profile, this.props.user.id)
   }
 
   render(){
@@ -18,12 +34,12 @@ class AccountInfo extends Component{
           <div>
             Not logged in
           </div>
-          : 
+          :
           <div>
             <h4>Edit Account Info</h4>
-            <input type="text" placeholder={user.firstName}/> < br />
-            <input type="text" placeholder={user.email} /> < br/>
-            <button type="submit">Submit Changes</button>
+            <input onChange={this.onInputChange.bind(this)} id="firstName" type="text" placeholder={user.firstName}/> < br />
+            <input onChange={this.onInputChange.bind(this)} id="email" type="text" placeholder={user.email} /> < br/>
+            <button onClick={this.submitUpdates.bind(this)} type="submit">Submit Changes</button>
           </div>
         }
       </div>
@@ -39,7 +55,7 @@ const stateToProps = (state) => {
 
 const dispatchToProps = (dispatch) => {
   return{
-    updateAccount: (params) => dispatch(actions.updateAccount)
+    updateAccount: (params, id) => dispatch(actions.updateAccount(params, id))
   }
 }
 

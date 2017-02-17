@@ -58,8 +58,10 @@ router.get('/:resource/:id', function(req, res, next){
 })
 
 router.put('/:resource/:id', function(req, res, next){
+	console.log(JSON.stringify('req.body'))
 	var resource = req.params.resource
 	var controller = controllers[resource]
+	var id = req.params.id
 
   if(controller == null){
   	res.json({
@@ -69,7 +71,7 @@ router.put('/:resource/:id', function(req, res, next){
   	return
   }
 
-	controller.update(req.body, false)
+	controller.update(id, req.body, false)
 	.then(function(result){
 		res.json({
 			confirmation: 'success',
