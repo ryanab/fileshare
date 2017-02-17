@@ -83,8 +83,9 @@ class CurrentUserUploads extends Component{
 
     return(
       <div>
-				<h4>CurrentUserUploads Container</h4>
-				<h3>Username: <em><strong>{firstName}</strong></em></h3>
+				<hr />
+				<h3>List of Files for Logged In<br />
+				User: <em><strong>{firstName}</strong></em></h3>
 					<ol>
 						{content}
 					</ol>

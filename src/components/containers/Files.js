@@ -139,13 +139,13 @@ class Files extends Component{
 
 		return(
       <div>
-				<h4>Files Container</h4><br />
-				<CreateFile />
+				<h4>Upload File Here</h4><br />
+        <CreateFile createFile={this.createFile.bind(this)} updateFileInfo={this.updateFileInfo.bind(this)}/>
 				<hr /><br /><br />
+				<h4>List of All Files</h4>
 				<ol>
 				{content}
 				</ol>
-        <File  files={this.props.file}/>< br />
 			</div>
     )
   }
