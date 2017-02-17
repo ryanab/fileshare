@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import actions from '../../actions'
 import { connect } from 'react-redux'
 
-class JDProfile extends Component{
+class Profile extends Component{
 
   render(){
 		let files = null
@@ -21,7 +21,7 @@ class JDProfile extends Component{
 					let audioLinkSplit = audioLink.split('upload/')
 					let newAudioLink =`${audioLinkSplit[0]}upload/h_150,w_200,fl_waveform,so_2,eo_4,co_blue,b_rgb:02b30a/${audioLinkSplit[1]}`
 					newAudioImageLink = newAudioLink.slice(0,newAudioLink.length-3)+'png'
-					console.log("MUSIC FILE: " + JSON.stringify(newAudioImageLink))
+					// console.log("MUSIC FILE: " + JSON.stringify(newAudioImageLink))
 				}
 
 				return(
@@ -80,7 +80,7 @@ class JDProfile extends Component{
 
     return(
       <div>
-      	<h1>Profile Container 2 <span style={{fontSize:'.6em'}}> (JD version)</span></h1>
+      	<h1>Profile Container<span style={{fontSize:'.6em'}}></span></h1>
 				<h3>Files Uploaded by <span style={{color:'blue'}}>{firstName.toUpperCase()}</span></h3><br />
 				<ol>
 					{content}
@@ -103,4 +103,4 @@ const dispatchToProps = (dispatch) => {
   }
 }
 
-export default connect(stateToProps, dispatchToProps)(JDProfile)
+export default connect(stateToProps, dispatchToProps)(Profile)

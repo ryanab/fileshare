@@ -2,32 +2,50 @@ import React, { Component } from 'react'
 import actions from '../../actions'
 import { connect } from 'react-redux'
 
-class CurrentUserUploads extends Component{
 
+class CurrentUserUploads extends Component{
+	constructor(){
+    super()
+    this.state = {
+      files:{
+
+      },
+			user:null
+
+    }
+  }
+	componentDidMount(){
+		this.props.fetchFiles()
+		.then(response=>{
+			// console.log("RESPONSE: " + JSON.stringify(response.results))
+		})
+	}
   render(){
-		let files = null
-		let firstName = null
-		let content = null
+
+
 		const fileTypeIcons = ["fa fa-file-picture-o fa-2x","fa fa-file-movie-o fa-2x","fa fa-file-pdf-o fa-2x","fa fa-file-audio-o fa-2x","fa fa-question-circle-o fa-2x"]
 		const fileCategories = ['image','video','pdf','audio','misc']
 		let audioLink = null
 		let newAudioImageLink = null
+		let newAudioLink=null
+		let audioLinkSplit=null
+		let firstName = null
+		let files = null
 
-		if(this.props.files != null && this.props.user !=null){
-			console.log("FILE ISSUE? " + JSON.stringify(this.props.files))
-			firstName=this.props.user.firstName.toUpperCase()
-			files=this.props.files.uploader[this.props.user.id]
-			console.log("CURRENT USER FILES TO MAP ARE HERE: " + JSON.stringify(this.props.files.uploader[this.props.user.id]))
-			content=files.map((file,i)=>{
-				if(file.fileCategory == 'audio'){
-				audioLink=file.fileUrl
-				let audioLinkSplit=audioLink.split('upload/')
+		let content = (this.props.files != null && this.props.user !=null) ?
+
+			this.props.files.uploader[this.props.user.id].map((file,i) => {
+				firstName = 	this.props.user.firstName.toUpperCase()
+				files = this.props.files.uploader[this.props.user.id]
+		// console.log("MUSIC FILE: " + JSON.stringify(newAudioImageLink))
+			if(file.fileCategory == 'audio'){
+				audioLink = file.fileUrl
+				let audioLinkSplit = audioLink.split('upload/')
 				let newAudioLink =`${audioLinkSplit[0]}upload/h_150,w_200,fl_waveform,so_2,eo_4,co_blue,b_rgb:02b30a/${audioLinkSplit[1]}`
 				newAudioImageLink = newAudioLink.slice(0,newAudioLink.length-3)+'png'
 				// console.log("MUSIC FILE: " + JSON.stringify(newAudioImageLink))
-				}
-
-				return(
+			}
+			return(
 					<div key={i}>
 						<li >
 						 	<i className={fileTypeIcons[fileCategories.indexOf(file.fileCategory)]} style={{paddingRight:10}}></i>
@@ -67,29 +85,21 @@ class CurrentUserUploads extends Component{
 									</span>
 									: null
 							}
-							{
-								(file.fileCategory=='misc') ?
-									<span><
-										img width="150" height="150" src="/images/misc-compressed.png" />
-									</span>
-									: null
-							}
 								<br /><br />
-						</li>
-						<br />
-					</div>
-				)
-			})
-		}
+							</li>
+							<br />
+						</div>
+					)
+		})
+		:null
 
     return(
       <div>
 				<hr /><br /><br />
 				<h4>Uploads for Logged In User</h4>
-				<h3>Username: <em><strong>{firstName}</strong></em></h3>
-					<ol>
-						{content}
-					</ol>
+				<ol>
+					{content}
+				</ol>
     	</div>
     )
   }
@@ -102,4 +112,12 @@ const stateToProps = (state) => {
   }
 }
 
-export default connect(stateToProps)(CurrentUserUploads)
+const dispatchToProps = (dispatch) => {
+  return {
+    fetchFiles: (params) => dispatch(actions.fetchFiles(params))
+  }
+}
+
+
+
+export default connect(stateToProps,dispatchToProps)(CurrentUserUploads)

@@ -6,7 +6,7 @@ const getRequest = (path, params, actionType)=>{
   return(dispatch) =>
     APIManager.get(path, params)
     .then(response=>{
-      console.log(JSON.stringify(response))
+      // console.log(JSON.stringify(response))
       const payload = response.results || response.result || response.user
       dispatch({
         type: actionType,

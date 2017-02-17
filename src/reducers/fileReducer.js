@@ -22,7 +22,7 @@ export default(state = initialState, action) => {
 			updated['uploader'] = uploader
 			//stores all files in one large array
 			updated['completeFileList'] = action.payload
-			console.log('UPDATED: ' + JSON.stringify(updated))
+			// console.log('UPDATED: ' + JSON.stringify(updated))
       return updated
 
     case constants.FILE_CREATED:
@@ -47,4 +47,3 @@ export default(state = initialState, action) => {
       return updated
   }
 }
-

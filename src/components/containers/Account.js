@@ -6,15 +6,15 @@ import actions from '../../actions'
 class Account extends Component{
 
   componentDidMount(){
-    
+
     this.props.fetchCurrentUser()
     .then(result=>{
-      console.log('CURRENTUSER: ' + JSON.stringify(result.user))
+      // console.log('CURRENTUSER: ' + JSON.stringify(result.user))
     })
   }
 
   componentDidUpdate(){
-    console.log(JSON.stringify(this.props.user))
+    // console.log(JSON.stringify(this.props.user))
   }
 
   login(credentials){

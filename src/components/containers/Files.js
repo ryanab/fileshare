@@ -32,7 +32,7 @@ class Files extends Component{
 
   updateFileInfo(key, value){
     event.preventDefault()
-		console.log("USER: " + JSON.stringify(this.props.user))
+		// console.log("USER: " + JSON.stringify(this.props.user))
 		if(this.props.user == null){
 			alert('YOU MUST BE LOGGED IN TO UPLOAD FILE')
 			return
@@ -81,7 +81,7 @@ class Files extends Component{
 					let audioLinkSplit = audioLink.split('upload/')
 					let newAudioLink =`${audioLinkSplit[0]}upload/h_150,w_200,fl_waveform,so_2,eo_4,co_blue,b_rgb:02b30a/${audioLinkSplit[1]}`
 					newAudioImageLink = newAudioLink.slice(0,newAudioLink.length-3)+'png'
-					console.log("MUSIC FILE: " + JSON.stringify(newAudioImageLink))
+					// console.log("MUSIC FILE: " + JSON.stringify(newAudioImageLink))
 				}
 
 				return(
