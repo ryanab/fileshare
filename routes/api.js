@@ -22,12 +22,12 @@ router.get('/:resource', function(req, res, next) {
   		results: results
   	})
   })
-  	.catch(function(err){
-  		res.json({
-  			confirmation: 'fail',
-  			message: err
-  		})
-  	})
+	.catch(function(err){
+		res.json({
+			confirmation: 'fail',
+			message: err
+		})
+	})
  })
 
 router.get('/:resource/:id', function(req, res, next){

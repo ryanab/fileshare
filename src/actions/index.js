@@ -67,19 +67,19 @@ export default{
   updateAccount: (params, id) => {
     //should rename USER_LOGGED_IN to CURRENT_USER_RECEIVED
     return (dispatch) => {
-      return dispatch(putRequest('/api/profile/' + id, params, constants.USER_LOGGED_IN))
+      return dispatch(putRequest('/api/profile/' + id, params, constants.CURRENT_USER_RECEIVED))
     }
   },
 
   login: (credentials) => {
     return (dispatch) => {
-      return dispatch(postRequest('account/login', credentials, constants.USER_LOGGED_IN))
+      return dispatch(postRequest('account/login', credentials, constants.CURRENT_USER_RECEIVED))
     }
   },
 
   fetchCurrentUser: ()=>{
     return(dispatch) => {
-      return dispatch(getRequest('account/currentuser', null, constants.USER_LOGGED_IN))
+      return dispatch(getRequest('account/currentuser', null, constants.CURRENT_USER_RECEIVED))
     }
   },
 
@@ -97,7 +97,7 @@ export default{
 
   logout: () => {
     return (dispatch) => {
-      return dispatch(getRequest('account/logout', null, constants.USER_LOGGED_IN))
+      return dispatch(getRequest('account/logout', null, constants.CURRENT_USER_RECEIVED))
     }
   },
 
