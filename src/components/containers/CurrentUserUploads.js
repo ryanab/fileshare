@@ -35,6 +35,7 @@ class CurrentUserUploads extends Component{
 		let content = (this.props.files != null && this.props.user !=null) ?
 
 			this.props.files.uploader[this.props.user.id].map((file,i) => {
+				console.log("CHECK MAP FUNCTION: " + JSON.stringify(this.props.files.uploader[this.props.user.id]))
 				firstName = 	this.props.user.firstName.toUpperCase()
 				files = this.props.files.uploader[this.props.user.id]
 		// console.log("MUSIC FILE: " + JSON.stringify(newAudioImageLink))
