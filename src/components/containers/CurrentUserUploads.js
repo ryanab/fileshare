@@ -15,10 +15,7 @@ class CurrentUserUploads extends Component{
     }
   }
 	componentDidMount(){
-		this.props.fetchFiles()
-		.then(response=>{
-			// console.log("RESPONSE: " + JSON.stringify(response.results))
-		})
+	
 	}
   render(){
 
