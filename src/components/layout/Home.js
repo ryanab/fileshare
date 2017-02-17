@@ -8,7 +8,16 @@ class Home extends Component{
 
     return(
     	<div>
+				<div className="container">
+					<div className="row">
+						<div className ="col-md-12" style={{border:'1px solid black', padding:0,margin:0}}>
+							<div >
+								<center><h1>Navigation Bar</h1></center>
+							</div>
+						</div>
+				</div>
 	      <div className="container">
+					</div>
 	      	<div className="row">
 						<div className="col-md-5" style={{border: '1px solid gray'}}>
 							<div>
