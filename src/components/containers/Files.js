@@ -139,7 +139,9 @@ class Files extends Component{
 
 		return(
       <div>
-				<h1>Files Container</h1><br />
+				<h4>Files Container</h4><br />
+				<CreateFile />
+				<hr /><br /><br />
 				<ol>
 				{content}
 				</ol>

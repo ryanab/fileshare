@@ -16,14 +16,14 @@ class CurrentUserUploads extends Component{
 		if(this.props.files != null && this.props.user !=null){
 			firstName = 	this.props.user.firstName.toUpperCase()
 			files = this.props.files.uploader[this.props.user.id]
-			console.log("CurrentUserUploads: " + JSON.stringify(this.props.files[this.props.user.id]))
+			// console.log("CurrentUserUploads: " + JSON.stringify(this.props.files[this.props.user.id]))
 			content = files.map((file,i)=>{
 				if(file.fileCategory == 'audio'){
 				audioLink = file.fileUrl
 				let audioLinkSplit = audioLink.split('upload/')
 				let newAudioLink =`${audioLinkSplit[0]}upload/h_150,w_200,fl_waveform,so_2,eo_4,co_blue,b_rgb:02b30a/${audioLinkSplit[1]}`
 				newAudioImageLink = newAudioLink.slice(0,newAudioLink.length-3)+'png'
-				console.log("MUSIC FILE: " + JSON.stringify(newAudioImageLink))
+				// <h1console.log("MUSIC FILE: " + JSON.stringify(newAudioImageLink))
 				}
 
 				return(
@@ -83,7 +83,7 @@ class CurrentUserUploads extends Component{
 
     return(
       <div>
-				<h1>CurrentUserUploads Container</h1>
+				<h4>CurrentUserUploads Container</h4>
 				<h3>Username: <em><strong>{firstName}</strong></em></h3>
 					<ol>
 						{content}
