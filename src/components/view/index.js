@@ -1,9 +1,9 @@
 import Authenticate from './Authenticate'
 import CreateFile from './CreateFile'
-import File from './File'
+import UploadInfo from './UploadInfo'
 
 export{
   Authenticate,
   CreateFile,
-  File
+  UploadInfo
 }
