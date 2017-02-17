@@ -1,19 +1,33 @@
 import React, { Component } from 'react'
-import { Account, Files, Profile, Profiles } from '../containers'
+import { Account, Files, Profile, Profiles, UserCurrentUploads } from '../containers'
 import { ProfileLayout, ProfilesLayout} from '../layout'
 import { Link } from 'react-router'
 
 class Home extends Component{
   render(){
     return(
-      <div>
-      	<h1>Home Layout</h1>
-        <Files />
-        <Account />
-        <br />
-        <Link to='/profiles'>Profiles</Link>
-        
-      </div>
+    	<div>
+	      <div className="container">
+	      	<h1>Home Layout</h1>
+	      	<div className="row">
+	      		<div className="col-md-2" style={{border: '1px solid black', margin: '10px', padding: '10px'}}>
+	      			<Account />
+	      		</div>
+	      	</div>
+	      	<div className="row">
+	      		<div className="col-md-3" style={{border: '1px solid black', margin: '10px', padding: '10px'}}>
+	      			<UserCurrentUploads />
+	      		</div>
+	      	</div>
+	      </div>
+	      <div className="container">
+	      	<div className="row">
+	      		<div className="col-md-9" style={{border: '1px solid black', margin: '10px', padding: '10px'}}>
+	      			<Files />
+	      		</div>
+	      	</div>      	
+	      </div>
+	    </div>
     )
   }
 }

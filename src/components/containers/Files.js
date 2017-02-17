@@ -71,6 +71,8 @@ class Files extends Component{
 		// console.log("FILES: " + JSON.stringify(this.props.files))
     return(
       <div>
+    		<CreateFile createFile={this.createFile.bind(this)} updateFileInfo={this.updateFileInfo.bind(this)}/>
+    		<br />
 				<ol>
 					{
 						(this.props.files == null ) ? 'No Files Rendered'
@@ -87,7 +89,7 @@ class Files extends Component{
 													'anonymous'
 												}&nbsp; (File Type: {file.fileExtension} )
 									 		<br /><br />
-									 		{(file.fileCategory=='image') ? <span><img src={file.fileUrl} /></span> : null}
+									 		{(file.fileCategory=='image') ? <span><img height='100' width='200' src={file.fileUrl} /></span> : null}
 									 		<br /><br />
 										</li>
 									</div>
@@ -97,7 +99,6 @@ class Files extends Component{
 				</ol>
 
         <File  files={this.props.file}/>< br />
-        <CreateFile createFile={this.createFile.bind(this)} updateFileInfo={this.updateFileInfo.bind(this)}/>
 			</div>
     )
   }
