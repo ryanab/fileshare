@@ -15,6 +15,7 @@ class Home extends Component{
 							<li><Link to={'/'}>Video</Link></li>
 							<li><Link to={'/'}>PDF</Link></li>
 							<li><Link to={'/'}>Misc</Link></li>
+							<li><Link to={'/profile'}><strong>FFs Profile</strong></Link></li>
 							<li><Link to={'/account'}>Login | Signup</Link></li>
 						</ul>
 					</nav>
