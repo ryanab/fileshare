@@ -47,6 +47,26 @@ export default {
 		})
 	},
 
+	put: (url, params) => {
+		return new Promise((resolve, reject) => {
+			superagent
+			.put(url)
+			.send(params)
+			.set('Accept, application/json')
+			.end((err, response) => {
+				if(err){
+					reject(err)
+				}
+				if (response.body.confirmation!='success'){
+					reject(new Error(response.body.message))
+					return
+				}
+				
+				resolve(response.body)
+			})
+		})
+	},
+
 	uploadFile: (url, file, params) => {
 		return new Promise((resolve, reject) => {
 					console.log("APIMANAGER: " + JSON.stringify(params))

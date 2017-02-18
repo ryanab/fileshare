@@ -37,23 +37,49 @@ const postRequest = (path, params, actionType)=>{
     })
 }
 
+const putRequest = (url, params, actionType) =>{
+  return(dispatch) => {
+    APIManager.put(url, params)
+    .then(response =>{
+      const payload = response.results || response.result || response.user
+      dispatch({
+        type: actionType,
+        payload: payload,
+        params: params
+      })
+      return response
+    })
+    .catch(err=>{
+      throw err
+    })
+  }
+}
+
+
 export default{
 
   register: (credentials) => {
-    return(dispatch) => {
+    return (dispatch) => {
       return dispatch(postRequest('account/register',credentials, constants.PROFILE_CREATED))
+    }
+  },
+
+  updateAccount: (params, id) => {
+    //should rename USER_LOGGED_IN to CURRENT_USER_RECEIVED
+    return (dispatch) => {
+      return dispatch(putRequest('/api/profile/' + id, params, constants.CURRENT_USER_RECEIVED))
     }
   },
 
   login: (credentials) => {
     return (dispatch) => {
-      return dispatch(postRequest('account/login', credentials, constants.USER_LOGGED_IN))
+      return dispatch(postRequest('account/login', credentials, constants.CURRENT_USER_RECEIVED))
     }
   },
 
   fetchCurrentUser: ()=>{
     return(dispatch) => {
-      return dispatch(getRequest('account/currentuser', null, constants.USER_LOGGED_IN))
+      return dispatch(getRequest('account/currentuser', null, constants.CURRENT_USER_RECEIVED))
     }
   },
 
@@ -71,7 +97,7 @@ export default{
 
   logout: () => {
     return (dispatch) => {
-      return dispatch(getRequest('account/logout', null, constants.USER_LOGGED_IN))
+      return dispatch(getRequest('account/logout', null, constants.CURRENT_USER_RECEIVED))
     }
   },
 

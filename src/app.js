@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import ReactDOM from 'react-dom'
-import { Home, ProfileLayout, ProfilesLayout, JDProfileLayout } from './components/layout'
+import { Home, ProfileLayout, ProfilesLayout, JDProfileLayout, UserAccount } from './components/layout'
 import { Profiles } from './components/containers'
 import { Provider } from 'react-redux'
 import store from './store'
@@ -15,6 +15,7 @@ const app = (
       <Route path="/profile/:id" component={ProfileLayout} />
       <Route path="/profiles" component={Profiles} />
 			<Route path="/jdprofile/:profileId" component={JDProfileLayout} />
+      <Route path="/account" component={UserAccount}/>
     </Router>
   </Provider>
 )

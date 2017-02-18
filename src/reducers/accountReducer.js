@@ -13,7 +13,7 @@ export default (state=initialState, action) => {
       updated.user = action.payload
       return updated
 
-    case constants.USER_LOGGED_IN:
+    case constants.CURRENT_USER_RECEIVED:
     
       updated.user = action.payload
       return updated
