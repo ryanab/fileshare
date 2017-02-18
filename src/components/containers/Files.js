@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { File, CreateFile} from '../view'
+import { CreateFile } from '../view'
 import actions from '../../actions'
 import { connect } from 'react-redux'
 import { Link } from 'react-router'

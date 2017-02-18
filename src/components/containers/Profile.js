@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import actions from '../../actions'
+import { ProfileLayout } from '../layout'
 import { connect } from 'react-redux'
+import { Link } from 'react-router'
 
 class Profile extends Component{
 
@@ -15,6 +17,7 @@ class Profile extends Component{
 
 		if(this.props.files!=null){
 			files =this.props.files.uploader[this.props.params.profileId]
+			console.log('UNDEFINED PROFILE ISSUE: '+JSON.stringify(this.props))
 			firstName = files[0].profile.firstName
 
 			content = files.map((file,i)=>{
@@ -91,14 +94,6 @@ class Profile extends Component{
 							</li><br />
 						</div>
 
-						<section id="sidebar">
-							<section id="intro">
-								<header>
-									<h3>fileshare sidebar</h3>
-								</header>
-							</section>
-						</section>
-
 					</div>
 				)
 			})
@@ -119,13 +114,13 @@ class Profile extends Component{
 					</nav>
 				</header>
 
-	      <div style={{marginLeft:20, marginRight:20}} className="post">
-	      	<h1>Profile Container<span style={{fontSize:'.6em'}}></span></h1>
+				<div style={{marginLeft:20, marginRight:20}} className="post">
+					<h1>Profile Container<span style={{fontSize:'.6em'}}></span></h1>
 					<h3>Files Uploaded by <span style={{color:'blue'}}>{firstName.toUpperCase()}</span></h3><br />
 					<ol>
 						{content}
 					</ol>
-	    	</div>
+				</div>
 
 				<section id="sidebar">
 					<section id="intro">
@@ -139,7 +134,6 @@ class Profile extends Component{
 		)
 	}
 }
-
 
 const stateToProps = (state) => {
   return {

@@ -6,7 +6,7 @@ import { connect } from 'react-redux'
 class CurrentUserUploads extends Component{
 
   render(){
-				console.log("CHECK MAP FUNCTION: " + JSON.stringify(this.props.files))
+		// console.log("CHECK MAP FUNCTION: " + JSON.stringify(this.props.files))
 
 		const fileTypeIcons = ["fa fa-file-picture-o fa-2x","fa fa-file-movie-o fa-2x","fa fa-file-pdf-o fa-2x","fa fa-file-audio-o fa-2x","fa fa-question-circle-o fa-2x"]
 		const fileCategories = ['image','video','pdf','audio','misc']

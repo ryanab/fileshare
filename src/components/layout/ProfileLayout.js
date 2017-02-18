@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Profile } from '../containers'
+import { Link } from 'react-router'
 
 class ProfileLayout extends Component {
 	render(){

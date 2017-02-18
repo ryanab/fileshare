@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
-import { Account, Files, Profile, CurrentUserUploads } from '../containers'
-import { ProfileLayout} from '../layout'
+import { Account, AccountInfo, Files, CurrentUserUploads, Profile } from '../containers'
 import { Link } from 'react-router'
 
 class Home extends Component{
@@ -15,24 +14,21 @@ class Home extends Component{
 							<li><Link to={'/'}>Video</Link></li>
 							<li><Link to={'/'}>PDF</Link></li>
 							<li><Link to={'/'}>Misc</Link></li>
-							<li><Link to={'/profile'}><strong>FFs Profile</strong></Link></li>
 							<li><Link to={'/account'}>Login | Signup</Link></li>
 						</ul>
 					</nav>
 				</header>
 
 				<div id="main">
-					<div className="post">
-						<CurrentUserUploads />
-					</div>
 
 					<div className="post">
-					  <Files />
 						<section id="intro">
 							<header>
 								<h2 style={{textAlign:'center'}}>shared files</h2>
 							</header>
 						</section>
+					  <Files />
+						<CurrentUserUploads />
 					</div>
 				</div>
 
@@ -40,6 +36,7 @@ class Home extends Component{
 					<section id="intro">
 						<header>
 							<h3>Fireshare: Home</h3>
+							<AccountInfo />
 						</header>
 					</section>
 
