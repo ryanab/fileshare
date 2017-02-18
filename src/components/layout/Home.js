@@ -71,7 +71,6 @@ class Home extends Component{
 								</article>
 							</li>
 						</ul>
-
 					</section>
 				</section>
 			</div>
