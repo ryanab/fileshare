@@ -18,8 +18,8 @@ class Files extends Component{
   componentDidMount(){
     this.props.fetchFiles()
   }
-	componentDidUpdate(){
 
+	componentDidUpdate(){
 	}
 
   createFile(){
@@ -83,7 +83,7 @@ class Files extends Component{
 					newAudioImageLink = newAudioLink.slice(0,newAudioLink.length-3)+'png'
 					// console.log("MUSIC FILE: " + JSON.stringify(newAudioImageLink))
 				}
-
+				
 				return(
 					<li key={i}>
 						<i className={fileTypeIcons[fileCategories.indexOf(file.fileCategory)]} style={{paddingRight:10}}></i>
@@ -154,7 +154,8 @@ class Files extends Component{
 const stateToProps = (state) => {
   return {
     files: state.files,
-    user: state.account.user
+    user: state.account.user,
+		state: state
   }
 }
 

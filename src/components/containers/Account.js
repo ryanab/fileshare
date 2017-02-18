@@ -9,7 +9,7 @@ class Account extends Component{
 
     this.props.fetchCurrentUser()
     .then(result=>{
-      // console.log('CURRENTUSER: ' + JSON.stringify(result.user))
+      console.log(JSON.stringify(result))
     })
   }
 

@@ -4,20 +4,9 @@ import { connect } from 'react-redux'
 
 
 class CurrentUserUploads extends Component{
-	constructor(){
-    super()
-    this.state = {
-			uploader:{},
-	    completeFileList:[],
-			user:null
 
-    }
-  }
-	componentDidMount(){
-
-	}
   render(){
-
+				console.log("CHECK MAP FUNCTION: " + JSON.stringify(this.props.files))
 
 		const fileTypeIcons = ["fa fa-file-picture-o fa-2x","fa fa-file-movie-o fa-2x","fa fa-file-pdf-o fa-2x","fa fa-file-audio-o fa-2x","fa fa-question-circle-o fa-2x"]
 		const fileCategories = ['image','video','pdf','audio','misc']
@@ -28,10 +17,8 @@ class CurrentUserUploads extends Component{
 		let firstName = null
 		let files = null
 
-		let content = (this.props.files != null && this.props.user !=null) ?
-
+		let content = (this.props.files.iploader != null && this.props.user !=null) ?
 			this.props.files.uploader[this.props.user.id].map((file,i) => {
-				console.log("CHECK MAP FUNCTION: " + JSON.stringify(this.props.files.uploader[this.props.user.id]))
 				firstName = 	this.props.user.firstName.toUpperCase()
 				files = this.props.files.uploader[this.props.user.id]
 		// console.log("MUSIC FILE: " + JSON.stringify(newAudioImageLink))
@@ -88,7 +75,7 @@ class CurrentUserUploads extends Component{
 						</div>
 					)
 		})
-		:null
+		:<h3>No files found</h3>
 
     return(
       <div>
@@ -105,7 +92,7 @@ class CurrentUserUploads extends Component{
 const stateToProps = (state) => {
   return {
     files: state.files,
-    user: state.account.user
+    user: state.account.user,
   }
 }
 
