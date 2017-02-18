@@ -32,7 +32,6 @@ class Home extends Component{
 						</div>
 	      	</div>
 	      </div>
-				<Link to='/profiles'>Profile</Link>< br />
         <Link to='/account'>My Account</Link>
 	    </div>
 		)
