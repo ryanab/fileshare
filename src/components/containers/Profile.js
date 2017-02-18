@@ -55,8 +55,12 @@ class Profile extends Component{
 				</header>
 
 				<div style={{marginLeft:20, marginRight:20, marginTop:0}} className="post">
+
 					<h2>{profile.firstName}s files</h2><br />
 					<h3>{profile.email}</h3>
+
+					<p style={{paddingBottom:40}}>Cornhole enamel pin selvage heirloom tofu gastropub chillwave pabst post-ironic, jianbing tbh woke food truck vinyl. Leggings scenester trust fund kickstarter, church-key XOXO iceland poutine deep v 8-bit. Helvetica keffiyeh edison bulb cronut subway tile austin flannel, 3 wolf moon chicharrones. Poutine enamel pin fam offal chicharrones quinoa kinfolk. Slow-carb flannel truffaut master cleanse, gluten-free dreamcatcher street art offal squid. Put a bird on it waistcoat keytar hella flexitarian. Echo park irony etsy roof party.</p>
+
 				</div>
 
 				<div className="post">
@@ -133,6 +137,7 @@ class Profile extends Component{
 									<Link to={'/'} className="image"><img src="/images/pic01.jpg" alt="" /></Link>
 								</article>
 							</li>
+
 							<li>
 								<article>
 									<header>
@@ -142,6 +147,7 @@ class Profile extends Component{
 								</article>
 							</li>
 						</ul>
+
 					</section>
 				</section>
       </div>

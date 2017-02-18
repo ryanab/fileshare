@@ -11,11 +11,11 @@ class Home extends Component{
 					<h1><Link to="/">Fileshare</Link></h1>
 					<nav className="links" style={{marginRight:100}}>
 						<ul>
-							<li><Link to="/">Image</Link></li>
-							<li><Link to="/">Video</Link></li>
-							<li><Link to="/">PDF</Link></li>
-							<li><Link to="/">Misc</Link></li>
-							<li><Link to="/account">Login | Signup</Link></li>
+							<li><Link to={'/'}>Image</Link></li>
+							<li><Link to={'/'}>Video</Link></li>
+							<li><Link to={'/'}>PDF</Link></li>
+							<li><Link to={'/'}>Misc</Link></li>
+							<li><Link to={'/account'}>Login | Signup</Link></li>
 						</ul>
 					</nav>
 				</header>
@@ -41,6 +41,7 @@ class Home extends Component{
 							<h3>Fireshare: Home</h3>
 						</header>
 					</section>
+
 					<section>
 						<ul className="posts">
 							<li>
@@ -51,30 +52,7 @@ class Home extends Component{
 									<Link to={'/'} className="image"><img src="/images/pic01.jpg" alt="" /></Link>
 								</article>
 							</li>
-							<li>
-								<article>
-									<header>
-										<h3><Link to={'/'}>File 2</Link></h3>
-									</header>
-									<Link to={'/'} className="image"><img src="/images/pic02.jpg" alt="" /></Link>
-								</article>
-							</li>
-							<li>
-								<article>
-									<header>
-										<h3><Link to={'/'}>File 3</Link></h3>
-									</header>
-									<Link to={'/'} className="image"><img src="/images/pic03.jpg" alt="" /></Link>
-								</article>
-							</li>
-							<li>
-								<article>
-									<header>
-										<h3><Link to={'/'}>File 4</Link></h3>
-									</header>
-									<Link to={'/'} className="image"><img src="/images/pic04.jpg" alt="" /></Link>
-								</article>
-							</li>
+
 							<li>
 								<article>
 									<header>
@@ -83,6 +61,7 @@ class Home extends Component{
 									<Link to={'/'} className="image"><img src="/images/pic05.jpg" alt="" /></Link>
 								</article>
 							</li>
+
 							<li>
 								<article>
 									<header>
@@ -92,6 +71,7 @@ class Home extends Component{
 								</article>
 							</li>
 						</ul>
+
 					</section>
 				</section>
 			</div>
