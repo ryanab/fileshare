@@ -2,31 +2,34 @@ import React, { Component } from 'react'
 import actions from '../../actions'
 import { connect } from 'react-redux'
 
+
 class CurrentUserUploads extends Component{
 
   render(){
-		let files = null
-		let firstName = null
-		let content = null
+				console.log("CHECK MAP FUNCTION: " + JSON.stringify(this.props.files))
+
 		const fileTypeIcons = ["fa fa-file-picture-o fa-2x","fa fa-file-movie-o fa-2x","fa fa-file-pdf-o fa-2x","fa fa-file-audio-o fa-2x","fa fa-question-circle-o fa-2x"]
 		const fileCategories = ['image','video','pdf','audio','misc']
 		let audioLink = null
 		let newAudioImageLink = null
+		let newAudioLink=null
+		let audioLinkSplit=null
+		let firstName = null
+		let files = null
 
-		if(this.props.files != null && this.props.user !=null){
-			firstName = 	this.props.user.firstName.toUpperCase()
-			files = this.props.files.uploader[this.props.user.id]
-			console.log("CurrentUserUploads: " + JSON.stringify(this.props.files[this.props.user.id]))
-			content = files.map((file,i)=>{
-				if(file.fileCategory == 'audio'){
+		let content = (this.props.user==null || this.props.files.uploader[this.props.user.id]==null) ? <h3>No files found</h3> :
+			this.props.files.uploader[this.props.user.id].map((file,i) => {
+				firstName = 	this.props.user.firstName.toUpperCase()
+				files = this.props.files.uploader[this.props.user.id]
+		// console.log("MUSIC FILE: " + JSON.stringify(newAudioImageLink))
+			if(file.fileCategory == 'audio'){
 				audioLink = file.fileUrl
 				let audioLinkSplit = audioLink.split('upload/')
 				let newAudioLink =`${audioLinkSplit[0]}upload/h_150,w_200,fl_waveform,so_2,eo_4,co_blue,b_rgb:02b30a/${audioLinkSplit[1]}`
 				newAudioImageLink = newAudioLink.slice(0,newAudioLink.length-3)+'png'
-				console.log("MUSIC FILE: " + JSON.stringify(newAudioImageLink))
-				}
-
-				return(
+				// console.log("MUSIC FILE: " + JSON.stringify(newAudioImageLink))
+			}
+			return(
 					<div key={i}>
 						<li >
 						 	<i className={fileTypeIcons[fileCategories.indexOf(file.fileCategory)]} style={{paddingRight:10}}></i>
@@ -66,28 +69,20 @@ class CurrentUserUploads extends Component{
 									</span>
 									: null
 							}
-							{
-								(file.fileCategory=='misc') ?
-									<span><
-										img width="150" height="150" src="/images/misc-compressed.png" />
-									</span>
-									: null
-							}
 								<br /><br />
-						</li>
-						<br />
-					</div>
-				)
-			})
-		}
+							</li>
+							<br />
+						</div>
+					)
+		})
 
     return(
       <div>
-				<h1>CurrentUserUploads Container</h1>
-				<h3>Username: <em><strong>{firstName}</strong></em></h3>
-					<ol>
-						{content}
-					</ol>
+				<hr /><br /><br />
+				<h4>Uploads for Logged In User</h4>
+				<ol>
+					{content}
+				</ol>
     	</div>
     )
   }
@@ -96,8 +91,16 @@ class CurrentUserUploads extends Component{
 const stateToProps = (state) => {
   return {
     files: state.files,
-    user: state.account.user
+    user: state.account.user,
   }
 }
 
-export default connect(stateToProps)(CurrentUserUploads)
+const dispatchToProps = (dispatch) => {
+  return {
+    fetchFiles: (params) => dispatch(actions.fetchFiles(params))
+  }
+}
+
+
+
+export default connect(stateToProps,dispatchToProps)(CurrentUserUploads)

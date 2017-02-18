@@ -12,10 +12,9 @@ const app = (
   <Provider store={store.configureStore()}>
     <Router history={browserHistory}>
       <Route path="/" component={Home} /><br />
-      <Route path="/profile/:id" component={ProfileLayout} />
-      <Route path="/profiles" component={Profiles} />
 			<Route path="/jdprofile/:profileId" component={JDProfileLayout} />
       <Route path="/account" component={UserAccount}/>
+			<Route path="/profile/:profileId" component={ProfileLayout} />
     </Router>
   </Provider>
 )

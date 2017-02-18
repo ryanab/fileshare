@@ -14,7 +14,7 @@ export default {
     const paramsStr = 'timestamp=' + timestamp + '&upload_preset=' + config.CLOUDINARY_UPLOAD_PRESET + config.CLOUDINARY_API_SECRET
 
     const signature = sha1(paramsStr)
-    console.log(config.CLOUDINARY_API_KEY)
+    // console.log(config.CLOUDINARY_API_KEY)
     const params = {
       'api_key': config.CLOUDINARY_API_KEY,
       'timestamp': timestamp,

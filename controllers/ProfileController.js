@@ -38,7 +38,7 @@ module.exports = {
         resolve(profile.summary())
         return
       })
-    })   
+    })
   },
 
   update: function(id, params, isRaw){
@@ -61,7 +61,7 @@ module.exports = {
   create:function(params, isRaw){
     return new Promise(function(resolve, reject){
       if(params['password']) //check for null
-        params['password'] = bcrypt.hashSync(params.password, 10)            
+        params['password'] = bcrypt.hashSync(params.password, 10)
 
       Profile.create(params, function(err, profile){
         if(err){
@@ -72,7 +72,7 @@ module.exports = {
           resolve(profile)
           return
         }
-        console.log(JSON.stringify(profile))
+        // console.log(JSON.stringify(profile))
         resolve(profile.summary())
       })
     })

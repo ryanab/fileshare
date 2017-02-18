@@ -18,13 +18,16 @@ class Files extends Component{
   componentDidMount(){
     this.props.fetchFiles()
   }
-	componentDidUpdate(){
 
+	componentDidUpdate(){
 	}
 
   createFile(){
     event.preventDefault()
-
+		if(this.props.user==null){
+			alert('Please login or create an account so you can share files!')
+			return
+		}
     let file = this.state.file
     file['profile'] = this.props.user
 		this.props.createFile(this.state.file)
@@ -32,7 +35,7 @@ class Files extends Component{
 
   updateFileInfo(key, value){
     event.preventDefault()
-		console.log("USER: " + JSON.stringify(this.props.user))
+		// console.log("USER: " + JSON.stringify(this.props.user))
 		if(this.props.user == null){
 			alert('YOU MUST BE LOGGED IN TO UPLOAD FILE')
 			return
@@ -48,7 +51,6 @@ class Files extends Component{
 		if(fileUrl != undefined){
 			extension = fileUrl.substring(fileUrl.length-3)
 		}
-
 
 	 	let updated = Object.assign({}, this.state.file)
 			if(image.indexOf(extension) > -1){
@@ -74,21 +76,24 @@ class Files extends Component{
 		const fileCategories = ['image','video','pdf','audio','misc']
 		let audioLink = null
 		let newAudioImageLink = null
-		let content = (this.props.files !=null) ?
+		let noFilesReason = "No Files Found, please upload to begin"
+		if (this.props.user==null)
+			noFilesReason = "Please login or register to view files"
+		let content = (this.props.files !=null && this.props.user != null) ?
 			this.props.files.completeFileList.map((file,i)=>{
 				if(file.fileCategory == 'audio'){
 					audioLink = file.fileUrl
 					let audioLinkSplit = audioLink.split('upload/')
 					let newAudioLink =`${audioLinkSplit[0]}upload/h_150,w_200,fl_waveform,so_2,eo_4,co_blue,b_rgb:02b30a/${audioLinkSplit[1]}`
 					newAudioImageLink = newAudioLink.slice(0,newAudioLink.length-3)+'png'
-					console.log("MUSIC FILE: " + JSON.stringify(newAudioImageLink))
+					// console.log("MUSIC FILE: " + JSON.stringify(newAudioImageLink))
 				}
-
+				
 				return(
 					<li key={i}>
 						<i className={fileTypeIcons[fileCategories.indexOf(file.fileCategory)]} style={{paddingRight:10}}></i>
 						<a href={file.fileUrl}>{file.fileTitle}</a> created by&nbsp;
-						<Link to={'/jdprofile/'+file.profile.id}>	{file.profile['firstName']}</Link>
+						<Link to={'/profile/'+file.profile.id}>	{file.profile['firstName']}</Link>
 						&nbsp; (File Type: {file.fileExtension} )
 						<br /><br />
 						{
@@ -135,15 +140,17 @@ class Files extends Component{
 				)
 			})
 			:
-			<div>'no files rendered'</div>
+			<div>{noFilesReason}</div>
 
 		return(
       <div>
-				<h1>Files Container</h1><br />
+				<h4>Upload File Here</h4><br />
+        <CreateFile createFile={this.createFile.bind(this)} updateFileInfo={this.updateFileInfo.bind(this)}/>
+				<hr /><br /><br />
+				<h4>List of All Files</h4>
 				<ol>
 				{content}
 				</ol>
-        <File  files={this.props.file}/>< br />
 			</div>
     )
   }
@@ -152,7 +159,8 @@ class Files extends Component{
 const stateToProps = (state) => {
   return {
     files: state.files,
-    user: state.account.user
+    user: state.account.user,
+		state: state
   }
 }
 
