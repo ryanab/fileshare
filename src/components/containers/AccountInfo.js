@@ -1,6 +1,9 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import actions from '../../actions'
+import DropZone from 'react-dropzone'
+import sha1 from 'sha1'
+import { APIManager, ImageHelper } from '../../utils'
 
 class AccountInfo extends Component{
 
@@ -17,6 +20,30 @@ class AccountInfo extends Component{
     updated[event.target.id] = event.target.value
     this.setState({
       profile: updated
+    })
+  }
+
+  addAvatar(files){
+    console.log('addAvatar: ')
+    if(files.length == 0){
+        alert('File is too large')
+        return
+      }
+    const selectedFile = files[0]
+    const cloudinaryInfo = ImageHelper.getAuthParams()
+
+    APIManager.uploadFile(cloudinaryInfo.url, selectedFile, cloudinaryInfo.params)
+    .then((result) => {
+      console.log(JSON.stringify(result))
+      let updated = Object.assign({}, this.state.profile)
+      updated['image'] = result.secure_url
+      this.setState({
+        profile: updated
+      })
+      console.log(JSON.stringify(this.state.profile))
+    })
+    .catch((err) => {
+      alert(err.message)
     })
   }
 
@@ -38,7 +65,10 @@ class AccountInfo extends Component{
           <div>
             <h4>Edit Account Info</h4>
             <input onChange={this.onInputChange.bind(this)} id="firstName" type="text" placeholder={user.firstName}/> < br />
-            <input onChange={this.onInputChange.bind(this)} id="email" type="text" placeholder={user.email} /> < br/>
+            <input onChange={this.onInputChange.bind(this)} id="email" type="text" placeholder={user.email} />< br/>
+            <DropZone style={{border:'none'}} onDrop={this.addAvatar.bind(this)} maxSize={10000000}>
+              <button>Choose File</button>
+            </DropZone><br />
             <button onClick={this.submitUpdates.bind(this)} type="submit">Submit Changes</button>
           </div>
         }
