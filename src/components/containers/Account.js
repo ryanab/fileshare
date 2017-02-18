@@ -39,7 +39,7 @@ class Account extends Component{
         <Authenticate onRegister={this.register.bind(this)} onLogin={this.login.bind(this)}/>
         :(
           <div>
-            <img src={ImageHelper.thumbnail(this.props.user.image, 300)} />
+            <img src={ImageHelper.round(this.props.user.image, 100)} />
             <h3>{this.props.user.firstName}</h3>
             <h4>{this.props.user.email}</h4>
             <button onClick={this.logout.bind(this)}>Logout</button>

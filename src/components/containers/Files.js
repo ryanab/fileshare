@@ -93,7 +93,9 @@ class Files extends Component{
 					<li key={i}>
 						<i className={fileTypeIcons[fileCategories.indexOf(file.fileCategory)]} style={{paddingRight:10}}></i>
 						<a href={file.fileUrl}>{file.fileTitle}</a> created by&nbsp;
-						<Link to={'/profile/'+file.profile.id}>	{file.profile['firstName']}</Link>
+
+						<Link to={'/profile/'+file.profile.id}>{file.profile['image']}	{file.profile['firstName']}</Link>
+
 						&nbsp; (File Type: {file.fileExtension} )
 						<br /><br />
 						{
