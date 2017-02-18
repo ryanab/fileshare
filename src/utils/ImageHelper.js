@@ -2,8 +2,11 @@ import sha1 from 'sha1'
 import config from '../config'
 
 export default {
-
+  
   round: (url, dimen) => {
+    console.log(url)
+    if(url == '')
+      return
     let roundParams = 'upload/c_thumb,c_crop,g_face,r_max,h_'+dimen+',w_'+dimen+',x_0,y_0'
     return url.replace('upload', roundParams)
   },

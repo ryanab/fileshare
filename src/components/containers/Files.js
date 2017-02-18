@@ -3,6 +3,7 @@ import { File, CreateFile} from '../view'
 import actions from '../../actions'
 import { connect } from 'react-redux'
 import { Link } from 'react-router'
+import { ImageHelper } from '../../utils'
 
 class Files extends Component{
 
@@ -88,13 +89,17 @@ class Files extends Component{
 					newAudioImageLink = newAudioLink.slice(0,newAudioLink.length-3)+'png'
 					// console.log("MUSIC FILE: " + JSON.stringify(newAudioImageLink))
 				}
+				//console.log(JSON.stringify(ImageHelper.round(file.profile['image'])))
 				
+				let image = (file.profile.image==null) ? 'https://res.cloudinary.com/nomadreactjs/image/upload/v1487444179/iy40tldbclsixgvicnnq.jpg' : ImageHelper.round(file.profile['image'], 25)
+
 				return(
+
 					<li key={i}>
 						<i className={fileTypeIcons[fileCategories.indexOf(file.fileCategory)]} style={{paddingRight:10}}></i>
 						<a href={file.fileUrl}>{file.fileTitle}</a> created by&nbsp;
-
-						<Link to={'/profile/'+file.profile.id}>{file.profile['image']}	{file.profile['firstName']}</Link>
+						<Link to={'/profile/'+file.profile.id}><img src={image} /></Link>
+						<Link to={'/profile/'+file.profile.id}>{file.profile['firstName']}</Link>
 
 						&nbsp; (File Type: {file.fileExtension} )
 						<br /><br />
