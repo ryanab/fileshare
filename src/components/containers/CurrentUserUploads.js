@@ -17,7 +17,7 @@ class CurrentUserUploads extends Component{
 		let firstName = null
 		let files = null
 
-		let content = (this.props.files.iploader != null && this.props.user !=null) ?
+		let content = (this.props.user==null || this.props.files.uploader[this.props.user.id]==null) ? <h3>No files found</h3> :
 			this.props.files.uploader[this.props.user.id].map((file,i) => {
 				firstName = 	this.props.user.firstName.toUpperCase()
 				files = this.props.files.uploader[this.props.user.id]
@@ -75,7 +75,6 @@ class CurrentUserUploads extends Component{
 						</div>
 					)
 		})
-		:<h3>No files found</h3>
 
     return(
       <div>

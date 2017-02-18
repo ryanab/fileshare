@@ -24,7 +24,10 @@ class Files extends Component{
 
   createFile(){
     event.preventDefault()
-
+		if(this.props.user==null){
+			alert('Please login or create an account so you can share files!')
+			return
+		}
     let file = this.state.file
     file['profile'] = this.props.user
 		this.props.createFile(this.state.file)
@@ -48,7 +51,6 @@ class Files extends Component{
 		if(fileUrl != undefined){
 			extension = fileUrl.substring(fileUrl.length-3)
 		}
-
 
 	 	let updated = Object.assign({}, this.state.file)
 			if(image.indexOf(extension) > -1){
@@ -74,7 +76,10 @@ class Files extends Component{
 		const fileCategories = ['image','video','pdf','audio','misc']
 		let audioLink = null
 		let newAudioImageLink = null
-		let content = (this.props.files !=null) ?
+		let noFilesReason = "No Files Found, please upload to begin"
+		if (this.props.user==null)
+			noFilesReason = "Please login or register to view files"
+		let content = (this.props.files !=null && this.props.user != null) ?
 			this.props.files.completeFileList.map((file,i)=>{
 				if(file.fileCategory == 'audio'){
 					audioLink = file.fileUrl
@@ -135,7 +140,7 @@ class Files extends Component{
 				)
 			})
 			:
-			<div>'no files rendered'</div>
+			<div>{noFilesReason}</div>
 
 		return(
       <div>
