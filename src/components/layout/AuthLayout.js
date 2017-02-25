@@ -8,6 +8,7 @@ class AuthLayout extends Component {
 			<div id="wrapper">
 				<header id="header">
 					<h1><Link to="/">Fileshare</Link></h1>
+
 					<nav className="links">
 						<ul>
 							<li><Link to="/">Image</Link></li>
@@ -18,13 +19,13 @@ class AuthLayout extends Component {
 						</ul>
 					</nav>
 				</header>
+
 				<div id="main">
 					<div className="post">
-
 						<Account />
-
 					</div>
 				</div>
+
 			</div>
 		)
 	}

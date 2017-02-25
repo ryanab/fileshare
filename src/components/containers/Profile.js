@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import actions from '../../actions'
+import { ProfileLayout } from '../layout'
 import { connect } from 'react-redux'
+import { Link } from 'react-router'
 
 class Profile extends Component{
 
@@ -12,9 +14,12 @@ class Profile extends Component{
 		const fileCategories = ['image','video','pdf','audio','misc']
 		let audioLink = null
 		let newAudioImageLink = null
+
 		if(this.props.files!=null){
 			files =this.props.files.uploader[this.props.params.profileId]
+			console.log('UNDEFINED PROFILE ISSUE: '+JSON.stringify(this.props))
 			firstName = files[0].profile.firstName
+
 			content = files.map((file,i)=>{
 				if(file.fileCategory == 'audio'){
 					audioLink = file.fileUrl
@@ -25,69 +30,109 @@ class Profile extends Component{
 				}
 
 				return(
-					<div key={i}>
-						<li key={i}>
-							<i className={fileTypeIcons[fileCategories.indexOf(file.fileCategory)]} style={{paddingRight:10}}></i>
-								<a href={file.fileUrl} target="_blank">Download</a>
-								<br /><br />
-								{file.fileTitle} -- FileType: {file.fileExtension}
-								<br /><br />
-								{
-									(file.fileCategory=='image') ?
-										<span>
-											<img src={file.fileUrl} />
-										</span>
-									: null
-								}
-								{
-									(file.fileCategory=='video') ?
-										<span>
-											<video width="300" height="200" poster={file.fileUrl.substring(0,file.fileUrl.length-3)+"jpg"} preload="none" controls>
-											  <source src={file.fileUrl.substring(0,file.fileUrl.length-3) +"webm"} type="video/webm" />
-											  <source src={file.fileUrl.substring(0,file.fileUrl.length-3) +"mp4"} type = "video/mp4"/>
-											 	<source src={file.fileUrl.substring(0,file.fileUrl.length-3) +"ogg"}  type = "video/ogg"/>
-											</video>
-										</span>
-									: null
-								}
-								{
-									(file.fileCategory=='pdf') ?
-										<span><
-											img width="200" height="300" src={file.fileUrl.substring(0,file.fileUrl.length-3)+"jpg"} />
-										</span>
+					<div id="wrapper">
+						<header id="header">
+							<h1><Link to={'/'}>Fileshare</Link></h1>
+							<nav className="links">
+								<ul>
+									<li><Link to={'/'}>Image</Link></li>
+									<li><Link to={'/'}>Video</Link></li>
+									<li><Link to={'/'}>PDF</Link></li>
+									<li><Link to={'/'}>Misc</Link></li>
+									<li style={{paddingLeft:800}}><Link to={'/account'}>Login or Register</Link></li>
+								</ul>
+							</nav>
+						</header>
+
+						<div key={i} style={{marginLeft:20, marginRight:20, marginTop:0}} className="post">
+							<li key={i}>
+								<i className={fileTypeIcons[fileCategories.indexOf(file.fileCategory)]} style={{paddingRight:10}}></i>
+									<a href={file.fileUrl} target="_blank">Download</a>
+									<br /><br />
+									{file.fileTitle} -- FileType: {file.fileExtension}
+									<br /><br />
+									{
+										(file.fileCategory=='image') ?
+											<span>
+												<img src={file.fileUrl} />
+											</span>
 										: null
-								}
-								{
-									(file.fileCategory=='audio') ?
-										<span>
-											<a href={audioLink} target="_blank"><img src={newAudioImageLink} /></a>
-										</span>
+									}
+									{
+										(file.fileCategory=='video') ?
+											<span>
+												<video width="300" height="200" poster={file.fileUrl.substring(0,file.fileUrl.length-3)+"jpg"} preload="none" controls>
+												  <source src={file.fileUrl.substring(0,file.fileUrl.length-3) +"webm"} type="video/webm" />
+												  <source src={file.fileUrl.substring(0,file.fileUrl.length-3) +"mp4"} type = "video/mp4"/>
+												 	<source src={file.fileUrl.substring(0,file.fileUrl.length-3) +"ogg"}  type = "video/ogg"/>
+												</video>
+											</span>
 										: null
-								}
-								{
-									(file.fileCategory=='misc') ?
-										<span><
-											img width="150" height="150" src="/images/misc-compressed.png" />
-										</span>
-										: null
-								}
-								<br /><br />
+									}
+									{
+										(file.fileCategory=='pdf') ?
+											<span><
+												img width="200" height="300" src={file.fileUrl.substring(0,file.fileUrl.length-3)+"jpg"} />
+											</span>
+											: null
+									}
+									{
+										(file.fileCategory=='audio') ?
+											<span>
+												<a href={audioLink} target="_blank"><img src={newAudioImageLink} /></a>
+											</span>
+											: null
+									}
+									{
+										(file.fileCategory=='misc') ?
+											<span><
+												img width="150" height="150" src="/images/misc-compressed.png" />
+											</span>
+											: null
+									}
+									<br /><br />
 							</li><br />
 						</div>
-					)
-				})
-			}
+
+					</div>
+				)
+			})
+		}
 
     return(
-      <div>
-      	<h1>Profile Container<span style={{fontSize:'.6em'}}></span></h1>
-				<h3>Files Uploaded by <span style={{color:'blue'}}>{firstName.toUpperCase()}</span></h3><br />
-				<ol>
-					{content}
-				</ol>
-    	</div>
-    )
-  }
+			<div id="wrapper">
+				<header id="header">
+					<h1><Link to={'/'}>Fileshare</Link></h1>
+					<nav className="links">
+						<ul>
+							<li><Link to={'/'}>Image</Link></li>
+							<li><Link to={'/'}>Video</Link></li>
+							<li><Link to={'/'}>PDF</Link></li>
+							<li><Link to={'/'}>Misc</Link></li>
+							<li style={{paddingLeft:800}}><Link to={'/account'}>Login or Register</Link></li>
+						</ul>
+					</nav>
+				</header>
+
+				<div style={{marginLeft:20, marginRight:20}} className="post">
+					<h1>Profile Container<span style={{fontSize:'.6em'}}></span></h1>
+					<h3>Files Uploaded by <span style={{color:'blue'}}>{firstName.toUpperCase()}</span></h3><br />
+					<ol>
+						{content}
+					</ol>
+				</div>
+
+				<section id="sidebar">
+					<section id="intro">
+						<header>
+							<h3>fileshare sidebar</h3>
+						</header>
+					</section>
+				</section>
+
+			</div>
+		)
+	}
 }
 
 const stateToProps = (state) => {

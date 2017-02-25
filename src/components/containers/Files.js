@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { File, CreateFile} from '../view'
+import { CreateFile } from '../view'
 import actions from '../../actions'
 import { connect } from 'react-redux'
 import { Link } from 'react-router'
@@ -11,7 +11,7 @@ class Files extends Component{
     super()
     this.state = {
       file:{
-
+        fileCategory: 'misc' //default for now until we write function to determine fileType
       }
     }
   }
@@ -37,6 +37,7 @@ class Files extends Component{
   updateFileInfo(key, value){
     event.preventDefault()
 		// console.log("USER: " + JSON.stringify(this.props.user))
+
 		if(this.props.user == null){
 			alert('YOU MUST BE LOGGED IN TO UPLOAD FILE')
 			return
