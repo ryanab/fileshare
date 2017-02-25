@@ -17,11 +17,9 @@ class Files extends Component{
   }
 
   componentDidMount(){
-    this.props.fetchFiles()
+    this.props.fetchCurrentUser()
+		this.props.fetchFiles()
   }
-
-	componentDidUpdate(){
-	}
 
   createFile(){
     event.preventDefault()
@@ -176,6 +174,7 @@ const dispatchToProps = (dispatch) => {
   return {
     fetchFiles: (params) => dispatch(actions.fetchFiles(params)),
     createFile: (params) => dispatch(actions.createFile(params)),
+		fetchCurrentUser:()=> dispatch(actions.fetchCurrentUser())
   }
 }
 
