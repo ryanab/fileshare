@@ -3,5 +3,4 @@
 /node_modules
 /public/theme/
 /public/build/
-/src/config.js
 /models/Profile.js
