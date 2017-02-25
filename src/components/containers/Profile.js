@@ -39,7 +39,7 @@ class Profile extends Component{
 									<li><Link to={'/'}>Video</Link></li>
 									<li><Link to={'/'}>PDF</Link></li>
 									<li><Link to={'/'}>Misc</Link></li>
-									<li style={{paddingLeft:800}}><Link to={'/account'}>Login or Register</Link></li>
+									<li><Link to={'/account'}>Login or Register</Link></li>
 								</ul>
 							</nav>
 						</header>
@@ -109,7 +109,7 @@ class Profile extends Component{
 							<li><Link to={'/'}>Video</Link></li>
 							<li><Link to={'/'}>PDF</Link></li>
 							<li><Link to={'/'}>Misc</Link></li>
-							<li style={{paddingLeft:800}}><Link to={'/account'}>Login or Register</Link></li>
+							<li><Link to={'/account'}>Login or Register</Link></li>
 						</ul>
 					</nav>
 				</header>
@@ -125,7 +125,7 @@ class Profile extends Component{
 				<section id="sidebar">
 					<section id="intro">
 						<header>
-							<h3>fileshare sidebar</h3>
+							<h3 style={{marginLeft:200, marginRight:20}}>sidebar</h3>
 						</header>
 					</section>
 				</section>

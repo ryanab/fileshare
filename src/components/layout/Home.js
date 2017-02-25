@@ -37,38 +37,8 @@ class Home extends Component{
 						<header>
 							<h3>Fireshare: Home</h3>
 							<AccountInfo />
+							<Account />
 						</header>
-					</section>
-
-					<section>
-						<ul className="posts">
-							<li>
-								<article>
-									<header>
-										<h3><Link to={'/'}>File 1</Link></h3>
-									</header>
-									<Link to={'/'} className="image"><img src="/images/pic01.jpg" alt="" /></Link>
-								</article>
-							</li>
-
-							<li>
-								<article>
-									<header>
-										<h3><Link to={'/'}>File n-1</Link></h3>
-									</header>
-									<Link to={'/'} className="image"><img src="/images/pic05.jpg" alt="" /></Link>
-								</article>
-							</li>
-
-							<li>
-								<article>
-									<header>
-										<h3><Link to={'/'}>File n</Link></h3>
-									</header>
-									<Link to={'/'} className="image"><img src="/images/pic06.jpg" alt="" /></Link>
-								</article>
-							</li>
-						</ul>
 					</section>
 				</section>
 			</div>
