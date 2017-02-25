@@ -4,12 +4,15 @@ import actions from '../../actions'
 import { connect } from 'react-redux'
 import { Link } from 'react-router'
 import { ImageHelper } from '../../utils'
+import firebase from 'firebase'
 
 class Files extends Component{
 
   constructor(){
     super()
     this.state = {
+			firebaseRef: null,
+			currentFiles:[],
       file:{
         fileCategory: 'misc' //default for now until we write function to determine fileType
       }
@@ -19,7 +22,29 @@ class Files extends Component{
   componentDidMount(){
     this.props.fetchCurrentUser()
 		this.props.fetchFiles()
+
+		firebase.initializeApp({
+			apiKey: "AIzaSyC61QoCNlXioOb-lNpIno13LLTp6Q6AwqI",
+			authDomain: "fileshare-5fb82.firebaseapp.com",
+			databaseURL: "https://fileshare-5fb82.firebaseio.com",
+			storageBucket: "fileshare-5fb82.appspot.com",
+			messagingSenderId: "433043878773"
+		})
+		const dbRef = firebase.database()
+
+		dbRef.ref('/files').on('value', (snapshot)=>{
+			this.setState({
+				currentFiles: snapshot.val()
+			})
+		})
+		this.setState({
+			firebaseRef: dbRef
+		})
   }
+
+	addToFireBase(file, event){
+		this.state.firebaseRef.ref('/files/' + this.state.currentFiles.length).set(file)
+	}
 
   createFile(){
     event.preventDefault()
@@ -27,9 +52,10 @@ class Files extends Component{
 			alert('Please login or create an account so you can share files!')
 			return
 		}
-    let file = this.state.file
+    let file = Object.assign({}, this.state.file)
     file['profile'] = this.props.user
-		this.props.createFile(this.state.file)
+		//this.props.createFile(this.state.file)
+		this.addToFireBase(file)
   }
 
   updateFileInfo(key, value){
@@ -80,7 +106,8 @@ class Files extends Component{
 		if (this.props.user==null)
 			noFilesReason = "Please login or register to view files"
 		let content = (this.props.files !=null && this.props.user != null) ?
-			this.props.files.completeFileList.map((file,i)=>{
+			this.state.currentFiles.map((file,i)=>{
+			//this.props.files.completeFileList.map((file,i)=>{
 				if(file.fileCategory == 'audio'){
 					audioLink = file.fileUrl
 					let audioLinkSplit = audioLink.split('upload/')
